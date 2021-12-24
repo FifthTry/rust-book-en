@@ -1,0 +1,17 @@
+-- import: fifthtry/fpm-book as book
+
+
+-- book.toc:
+title: Introduction
+id: test
+url: /
+
+-- book.toc:
+title: Foreword
+id: test
+url: /foreword/
+
+-- book.toc:
+title: Chapter 00
+id: test
+url: /ch00-00-introduction/
