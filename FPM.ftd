@@ -1,7 +1,7 @@
 -- import: fpm
 
 -- fpm.package:
-name: reimagined-doodle
+name: welcome-fpm-book
 
--- fpm.dependency: fifthtry/fpm-book
+-- fpm.dependency: fifthtry/flash-theme
 repo: github
