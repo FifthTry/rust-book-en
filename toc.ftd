@@ -1,17 +1,19 @@
 -- import: fifthtry/flash-theme as book
 
-
 -- book.toc:
-title: Introduction
-id: test
-url: /
+$processor$: toc
 
--- book.toc:
-title: Foreword
-id: test
-url: /foreword/
-
--- book.toc:
-title: Chapter 00
-id: test
-url: /ch00-00-introduction/
+- /
+  The Rust Programming Language
+- foreword
+  Foreword
+- ch00-00-introduction
+  Introduction
+- getting-started
+  Getting Started
+  - a
+    Installation
+  - a
+    Hello, World!
+  - a
+    Hello, Cargo
