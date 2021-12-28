@@ -9,11 +9,11 @@ $processor$: toc
   Foreword
 - ch00-00-introduction
   Introduction
-- getting-started
+- ch01-00-getting-started
   Getting Started
-  - a
+  - ch01-01-installation
     Installation
-  - a
+  - ch01-02-hello-world
     Hello, World!
-  - a
+  - ch01-03-hello-cargo
     Hello, Cargo

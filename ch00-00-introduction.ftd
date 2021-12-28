@@ -1,6 +1,8 @@
 -- import: fifthtry/flash-theme as article
 -- import: toc
 
+-- article.page:
+
 -- article.h1: Introduction
 
 -- article.markdown:

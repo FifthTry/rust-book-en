@@ -5,7 +5,7 @@
 
 -- article.h1: The Rust Programming Language
 
--- article.h1: *by Steve Klabnik and Carol Nichols, with contributions from the Rust Community*
+-- article.h2: *by Steve Klabnik and Carol Nichols, with contributions from the Rust Community*
 
 -- article.markdown:
 

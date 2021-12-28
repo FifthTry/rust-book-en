@@ -1,6 +1,6 @@
 -- import: fpm
 
--- fpm.package:
+-- fpm.package: fifthtry.github.io/welcome-fpm-book/
 name: welcome-fpm-book
 
 -- fpm.dependency: fifthtry/flash-theme
