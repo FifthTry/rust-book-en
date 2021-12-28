@@ -3,17 +3,17 @@
 -- book.toc:
 $processor$: toc
 
-- /
+- index.html
   The Rust Programming Language
-- foreword
+- foreword/
   Foreword
-- ch00-00-introduction
+- ch00-00-introduction/
   Introduction
-- ch01-00-getting-started
+- ch01-00-getting-started/
   Getting Started
-  - ch01-01-installation
+  - ch01-01-installation/
     Installation
-  - ch01-02-hello-world
+  - ch01-02-hello-world/
     Hello, World!
-  - ch01-03-hello-cargo
+  - ch01-03-hello-cargo/
     Hello, Cargo
