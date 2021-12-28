@@ -3,8 +3,7 @@
 -- fpm.package: fifthtry.github.io/welcome-fpm-book/
 zip: github.com/fifthtry/welcome-fpm-book/archive/refs/heads/main.zip
 
--- fpm.dependency: fifthtry/flash-theme
-repo: github
+-- fpm.dependency: fifthtry.github.io/Flash-theme
 
 -- fpm.font: Open Sans
 woff2: https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2
