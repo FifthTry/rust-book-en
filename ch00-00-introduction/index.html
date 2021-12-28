@@ -1,75 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"><base href="/welcome-fpm-book/">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>ftd</title>
+    <title>The Rust Programming Language</title>
     <script type="ftd" id="ftd-data">
         {
-  "@body@1": {
+  "@body@0,1": {
     "value": "> Note: This edition of the book is the same as [The Rust Programming\n> Language][nsprust] available in print and ebook format from [No Starch\n> Press][nsp].\n\n[nsprust]: https://nostarch.com/rust\n[nsp]: https://nostarch.com/\n\nWelcome to *The Rust Programming Language*, an introductory book about Rust.\nThe Rust programming language helps you write faster, more reliable software.\nHigh-level ergonomics and low-level control are often at odds in programming\nlanguage design; Rust challenges that conflict. Through balancing powerful\ntechnical capacity and a great developer experience, Rust gives you the option\nto control low-level details (such as memory usage) without all the hassle\ntraditionally associated with such control.\n\n## Who Rust Is For\n\nRust is ideal for many people for a variety of reasons. Let’s look at a few of\nthe most important groups.\n\n### Teams of Developers\n\nRust is proving to be a productive tool for collaborating among large teams of\ndevelopers with varying levels of systems programming knowledge. Low-level code\nis prone to a variety of subtle bugs, which in most other languages can be\ncaught only through extensive testing and careful code review by experienced\ndevelopers. In Rust, the compiler plays a gatekeeper role by refusing to\ncompile code with these elusive bugs, including concurrency bugs. By working\nalongside the compiler, the team can spend their time focusing on the program’s\nlogic rather than chasing down bugs.\n\nRust also brings contemporary developer tools to the systems programming world:\n\n* Cargo, the included dependency manager and build tool, makes adding,\n  compiling, and managing dependencies painless and consistent across the Rust\n  ecosystem.\n* Rustfmt ensures a consistent coding style across developers.\n* The Rust Language Server powers Integrated Development Environment (IDE)\n  integration for code completion and inline error messages.\n\nBy using these and other tools in the Rust ecosystem, developers can be\nproductive while writing systems-level code.\n\n### Students\n\nRust is for students and those who are interested in learning about systems\nconcepts. Using Rust, many people have learned about topics like operating\nsystems development. The community is very welcoming and happy to answer\nstudent questions. Through efforts such as this book, the Rust teams want to\nmake systems concepts more accessible to more people, especially those new to\nprogramming.\n\n### Companies\n\nHundreds of companies, large and small, use Rust in production for a variety of\ntasks. Those tasks include command line tools, web services, DevOps tooling,\nembedded devices, audio and video analysis and transcoding, cryptocurrencies,\nbioinformatics, search engines, Internet of Things applications, machine\nlearning, and even major parts of the Firefox web browser.\n\n### Open Source Developers\n\nRust is for people who want to build the Rust programming language, community,\ndeveloper tools, and libraries. We’d love to have you contribute to the Rust\nlanguage.\n\n### People Who Value Speed and Stability\n\nRust is for people who crave speed and stability in a language. By speed, we\nmean the speed of the programs that you can create with Rust and the speed at\nwhich Rust lets you write them. The Rust compiler’s checks ensure stability\nthrough feature additions and refactoring. This is in contrast to the brittle\nlegacy code in languages without these checks, which developers are often\nafraid to modify. By striving for zero-cost abstractions, higher-level features\nthat compile to lower-level code as fast as code written manually, Rust\nendeavors to make safe code be fast code as well.\n\nThe Rust language hopes to support many other users as well; those mentioned\nhere are merely some of the biggest stakeholders. Overall, Rust’s greatest\nambition is to eliminate the trade-offs that programmers have accepted for\ndecades by providing safety *and* productivity, speed *and* ergonomics. Give\nRust a try and see if its choices work for you.\n\n## Who This Book Is For\n\nThis book assumes that you’ve written code in another programming language but\ndoesn’t make any assumptions about which one. We’ve tried to make the material\nbroadly accessible to those from a wide variety of programming backgrounds. We\ndon’t spend a lot of time talking about what programming *is* or how to think\nabout it. If you’re entirely new to programming, you would be better served by\nreading a book that specifically provides an introduction to programming.\n\n## How to Use This Book\n\nIn general, this book assumes that you’re reading it in sequence from front to\nback. Later chapters build on concepts in earlier chapters, and earlier\nchapters might not delve into details on a topic; we typically revisit the\ntopic in a later chapter.\n\nYou’ll find two kinds of chapters in this book: concept chapters and project\nchapters. In concept chapters, you’ll learn about an aspect of Rust. In project\nchapters, we’ll build small programs together, applying what you’ve learned so\nfar. Chapters 2, 12, and 20 are project chapters; the rest are concept chapters.\n\nChapter 1 explains how to install Rust, how to write a “Hello, world!” program,\nand how to use Cargo, Rust’s package manager and build tool. Chapter 2 is a\nhands-on introduction to the Rust language. Here we cover concepts at a high\nlevel, and later chapters will provide additional detail. If you want to get\nyour hands dirty right away, Chapter 2 is the place for that. At first, you\nmight even want to skip Chapter 3, which covers Rust features similar to those\nof other programming languages, and head straight to Chapter 4 to learn about\nRust’s ownership system. However, if you’re a particularly meticulous learner\nwho prefers to learn every detail before moving on to the next, you might want\nto skip Chapter 2 and go straight to Chapter 3, returning to Chapter 2 when\nyou’d like to work on a project applying the details you’ve learned.\n\nChapter 5 discusses structs and methods, and Chapter 6 covers enums, `match`\nexpressions, and the `if let` control flow construct. You’ll use structs and\nenums to make custom types in Rust.\n\nIn Chapter 7, you’ll learn about Rust’s module system and about privacy rules\nfor organizing your code and its public Application Programming Interface\n(API). Chapter 8 discusses some common collection data structures that the\nstandard library provides, such as vectors, strings, and hash maps. Chapter 9\nexplores Rust’s error-handling philosophy and techniques.\n\nChapter 10 digs into generics, traits, and lifetimes, which give you the power\nto define code that applies to multiple types. Chapter 11 is all about testing,\nwhich even with Rust’s safety guarantees is necessary to ensure your program’s\nlogic is correct. In Chapter 12, we’ll build our own implementation of a subset\nof functionality from the `grep` command line tool that searches for text\nwithin files. For this, we’ll use many of the concepts we discussed in the\nprevious chapters.\n\nChapter 13 explores closures and iterators: features of Rust that come from\nfunctional programming languages. In Chapter 14, we’ll examine Cargo in more\ndepth and talk about best practices for sharing your libraries with others.\nChapter 15 discusses smart pointers that the standard library provides and the\ntraits that enable their functionality.\n\nIn Chapter 16, we’ll walk through different models of concurrent programming\nand talk about how Rust helps you to program in multiple threads fearlessly.\nChapter 17 looks at how Rust idioms compare to object-oriented programming\nprinciples you might be familiar with.\n\nChapter 18 is a reference on patterns and pattern matching, which are powerful\nways of expressing ideas throughout Rust programs. Chapter 19 contains a\nsmorgasbord of advanced topics of interest, including unsafe Rust, macros, and\nmore about lifetimes, traits, types, functions, and closures.\n\nIn Chapter 20, we’ll complete a project in which we’ll implement a low-level\nmultithreaded web server!\n\nFinally, some appendices contain useful information about the language in a\nmore reference-like format. Appendix A covers Rust’s keywords, Appendix B\ncovers Rust’s operators and symbols, Appendix C covers derivable traits\nprovided by the standard library, Appendix D covers some useful development\ntools, and Appendix E explains Rust editions.\n\nThere is no wrong way to read this book: if you want to skip ahead, go for it!\nYou might have to jump back to earlier chapters if you experience any\nconfusion. But do whatever works for you.\n\n<span id=\"ferris\"></span>\n\nAn important part of the process of learning Rust is learning how to read the\nerror messages the compiler displays: these will guide you toward working code.\nAs such, we’ll provide many examples that don’t compile along with the error\nmessage the compiler will show you in each situation. Know that if you enter\nand run a random example, it may not compile! Make sure you read the\nsurrounding text to see whether the example you’re trying to run is meant to\nerror. Ferris will also help you distinguish code that isn’t meant to work:\n\n| Ferris                                                                                                           | Meaning                                          |\n|------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|\n| <img src=\"img/ferris/does_not_compile.svg\" class=\"ferris-explain\" alt=\"Ferris with a question mark\"/>            | This code does not compile!                      |\n| <img src=\"img/ferris/panics.svg\" class=\"ferris-explain\" alt=\"Ferris throwing up their hands\"/>                   | This code panics!                                |\n| <img src=\"img/ferris/not_desired_behavior.svg\" class=\"ferris-explain\" alt=\"Ferris with one claw up, shrugging\"/> | This code does not produce the desired behavior. |\n\nIn most situations, we’ll lead you to the correct version of any code that\ndoesn’t compile.\n\n## Source Code\n\nThe source files from which this book is generated can be found on\n[GitHub][book].\n\n[book]: https://github.com/rust-lang/book/tree/main/src",
     "dependencies": {
-      "0,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+      "0,0,1,0,0,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
     }
   },
-  "@title@0": {
+  "@title@0,0": {
     "value": "Introduction",
     "dependencies": {
-      "0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+      "0,0,1,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
     }
   },
-  "fifthtry/flash-theme#base_size": {
+  "fifthtry.github.io/Flash-theme#base_size": {
     "value": "18",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#heading_size": {
+  "fifthtry.github.io/Flash-theme#heading_size": {
     "value": "28",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral": {
+  "fifthtry.github.io/Flash-theme#neutral": {
     "value": "#fff",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral-200": {
+  "fifthtry.github.io/Flash-theme#neutral-200": {
     "value": "#ced2dd",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral-300": {
+  "fifthtry.github.io/Flash-theme#neutral-300": {
     "value": "#F9F9F9",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral-400": {
+  "fifthtry.github.io/Flash-theme#neutral-400": {
     "value": "#E1E1E1",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral-500": {
+  "fifthtry.github.io/Flash-theme#neutral-500": {
     "value": "#323546",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral-600": {
+  "fifthtry.github.io/Flash-theme#neutral-600": {
     "value": "#3E4155",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral-700": {
+  "fifthtry.github.io/Flash-theme#neutral-700": {
     "value": "#1C1C24",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#neutral-800": {
+  "fifthtry.github.io/Flash-theme#neutral-800": {
     "value": "#000",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#sub_heading_size": {
+  "fifthtry.github.io/Flash-theme#sub_heading_size": {
     "value": "22",
     "dependencies": {}
   },
-  "fifthtry/flash-theme#title_size": {
+  "fifthtry.github.io/Flash-theme#title_size": {
     "value": "36",
     "dependencies": {}
   }
 }
     </script>
     <script type="ftd" id="ftd-external-children">
-        {}
+        {
+  "main-container-external:0": [
+    {
+      "condition": [
+        "main-container:0,0,1,0"
+      ],
+      "set_at": "main-container:0,0,1,0"
+    }
+  ]
+}
     </script>
     <script>
         // all ftd_utils are meant to be pure functions only: they can only depend on the
@@ -680,8 +689,15 @@ window.ftd = (function () {
 </head>
     <body>
 
-        <div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" id="introduction" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Introduction</div>
-<div data-id="0,2:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><blockquote>
+        <div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-row:0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: sticky; top: 0px; white-space: initial; width: 300px" class="ft_md"><div data-id="0,0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,0:main" href="/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">The Rust Programming Language</a></div>
+<div data-id="0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,1,0:main" href="/foreword/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Foreword</a></div>
+<div data-id="0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,2,0:main" href="/ch00-00-introduction/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Introduction</a></div>
+<div data-id="0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,0:main" href="/ch01-00-getting-started/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Getting Started</a>
+<div data-id="0,0,0,3,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,1,0:main" href="/ch01-01-installation/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Installation</a></div>
+<div data-id="0,0,0,3,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,2,0:main" href="/ch01-02-hello-world/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, World!</a></div>
+<div data-id="0,0,0,3,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,3,0:main" href="/ch01-03-hello-cargo/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, Cargo</a></div></div></div>
+<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="introduction" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Introduction</div>
+<div data-id="0,0,1,0,0,2:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><blockquote>
 <p>Note: This edition of the book is the same as <a href="https://nostarch.com/rust">The Rust Programming
 Language</a> available in print and ebook format from <a href="https://nostarch.com/">No Starch
 Press</a>.</p>
@@ -847,7 +863,7 @@ doesn’t compile.</p>
 <h2>Source Code</h2>
 <p>The source files from which this book is generated can be found on
 <a href="https://github.com/rust-lang/book/tree/main/src">GitHub</a>.</p>
-</div></div></div><style>
+</div></div></div></div></div></div></div><style>
 @font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
 font-style: light;;
 src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');

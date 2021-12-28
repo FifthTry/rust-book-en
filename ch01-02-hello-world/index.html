@@ -6,18 +6,14 @@
     <title>The Rust Programming Language</title>
     <script type="ftd" id="ftd-data">
         {
-  "@body@0,0": {
-    "value": "It wasn’t always so clear, but the Rust programming language is fundamentally\nabout *empowerment*: no matter what kind of code you are writing now, Rust\nempowers you to reach farther, to program with confidence in a wider variety of\ndomains than you did before.\n\nTake, for example, “systems-level” work that deals with low-level details of\nmemory management, data representation, and concurrency. Traditionally, this\nrealm of programming is seen as arcane, accessible only to a select few who\nhave devoted the necessary years learning to avoid its infamous pitfalls. And\neven those who practice it do so with caution, lest their code be open to\nexploits, crashes, or corruption.\n\nRust breaks down these barriers by eliminating the old pitfalls and providing a\nfriendly, polished set of tools to help you along the way. Programmers who need\nto “dip down” into lower-level control can do so with Rust, without taking on\nthe customary risk of crashes or security holes, and without having to learn\nthe fine points of a fickle toolchain. Better yet, the language is designed to\nguide you naturally towards reliable code that is efficient in terms of speed\nand memory usage.\n\nProgrammers who are already working with low-level code can use Rust to raise\ntheir ambitions. For example, introducing parallelism in Rust is a relatively\nlow-risk operation: the compiler will catch the classical mistakes for you. And\nyou can tackle more aggressive optimizations in your code with the confidence\nthat you won’t accidentally introduce crashes or vulnerabilities.\n\nBut Rust isn’t limited to low-level systems programming. It’s expressive and\nergonomic enough to make CLI apps, web servers, and many other kinds of code\nquite pleasant to write — you’ll find simple examples of both later in the\nbook. Working with Rust allows you to build skills that transfer from one\ndomain to another; you can learn Rust by writing a web app, then apply those\nsame skills to target your Raspberry Pi.\n\nThis book fully embraces the potential of Rust to empower its users. It’s a\nfriendly and approachable text intended to help you level up not just your\nknowledge of Rust, but also your reach and confidence as a programmer in\ngeneral. So dive in, get ready to learn—and welcome to the Rust community!\n\n— Nicholas Matsakis and Aaron Turon",
-    "dependencies": {}
-  },
-  "@body@0,0,1": {
-    "value": "It wasn’t always so clear, but the Rust programming language is fundamentally\nabout *empowerment*: no matter what kind of code you are writing now, Rust\nempowers you to reach farther, to program with confidence in a wider variety of\ndomains than you did before.\n\nTake, for example, “systems-level” work that deals with low-level details of\nmemory management, data representation, and concurrency. Traditionally, this\nrealm of programming is seen as arcane, accessible only to a select few who\nhave devoted the necessary years learning to avoid its infamous pitfalls. And\neven those who practice it do so with caution, lest their code be open to\nexploits, crashes, or corruption.\n\nRust breaks down these barriers by eliminating the old pitfalls and providing a\nfriendly, polished set of tools to help you along the way. Programmers who need\nto “dip down” into lower-level control can do so with Rust, without taking on\nthe customary risk of crashes or security holes, and without having to learn\nthe fine points of a fickle toolchain. Better yet, the language is designed to\nguide you naturally towards reliable code that is efficient in terms of speed\nand memory usage.\n\nProgrammers who are already working with low-level code can use Rust to raise\ntheir ambitions. For example, introducing parallelism in Rust is a relatively\nlow-risk operation: the compiler will catch the classical mistakes for you. And\nyou can tackle more aggressive optimizations in your code with the confidence\nthat you won’t accidentally introduce crashes or vulnerabilities.\n\nBut Rust isn’t limited to low-level systems programming. It’s expressive and\nergonomic enough to make CLI apps, web servers, and many other kinds of code\nquite pleasant to write — you’ll find simple examples of both later in the\nbook. Working with Rust allows you to build skills that transfer from one\ndomain to another; you can learn Rust by writing a web app, then apply those\nsame skills to target your Raspberry Pi.\n\nThis book fully embraces the potential of Rust to empower its users. It’s a\nfriendly and approachable text intended to help you level up not just your\nknowledge of Rust, but also your reach and confidence as a programmer in\ngeneral. So dive in, get ready to learn—and welcome to the Rust community!\n\n— Nicholas Matsakis and Aaron Turon",
+  "@body@0,1": {
+    "value": "Now that you’ve installed Rust, let’s write your first Rust program. It’s\ntraditional when learning a new language to write a little program that prints\nthe text `Hello, world!` to the screen, so we’ll do the same here!\n\n> Note: This book assumes basic familiarity with the command line. Rust makes\n> no specific demands about your editing or tooling or where your code lives, so\n> if you prefer to use an integrated development environment (IDE) instead of\n> the command line, feel free to use your favorite IDE. Many IDEs now have some\n> degree of Rust support; check the IDE’s documentation for details. Recently,\n> the Rust team has been focusing on enabling great IDE support, and progress\n> has been made rapidly on that front!\n\n### Creating a Project Directory\n\nYou’ll start by making a directory to store your Rust code. It doesn’t matter\nto Rust where your code lives, but for the exercises and projects in this book,\nwe suggest making a *projects* directory in your home directory and keeping all\nyour projects there.\n\nOpen a terminal and enter the following commands to make a *projects* directory\nand a directory for the “Hello, world!” project within the *projects* directory.\n\nFor Linux, macOS, and PowerShell on Windows, enter this:\n\n```console\n$ mkdir ~/projects\n$ cd ~/projects\n$ mkdir hello_world\n$ cd hello_world\n```\n\nFor Windows CMD, enter this:\n\n```cmd\n> mkdir \"%USERPROFILE%\\projects\"\n> cd /d \"%USERPROFILE%\\projects\"\n> mkdir hello_world\n> cd hello_world\n```\n\n### Writing and Running a Rust Program\n\nNext, make a new source file and call it *main.rs*. Rust files always end with\nthe *.rs* extension. If you’re using more than one word in your filename, use\nan underscore to separate them. For example, use *hello_world.rs* rather than\n*helloworld.rs*.\n\nNow open the *main.rs* file you just created and enter the code in Listing 1-1.\n\n<span class=\"filename\">Filename: main.rs</span>\n\n```rust\nfn main() {\n    println!(\"Hello, world!\");\n}\n```\n\n<span class=\"caption\">Listing 1-1: A program that prints `Hello, world!`</span>\n\nSave the file and go back to your terminal window. On Linux or macOS, enter\nthe following commands to compile and run the file:\n\n```console\n$ rustc main.rs\n$ ./main\nHello, world!\n```\n\nOn Windows, enter the command `.\\main.exe` instead of `./main`:\n\n```powershell\n> rustc main.rs\n> .\\main.exe\nHello, world!\n```\n\nRegardless of your operating system, the string `Hello, world!` should print to\nthe terminal. If you don’t see this output, refer back to the\n[“Troubleshooting”][troubleshooting]<!-- ignore --> part of the Installation\nsection for ways to get help.\n\nIf `Hello, world!` did print, congratulations! You’ve officially written a Rust\nprogram. That makes you a Rust programmer—welcome!\n\n### Anatomy of a Rust Program\n\nLet’s review in detail what just happened in your “Hello, world!” program.\nHere’s the first piece of the puzzle:\n\n```rust\nfn main() {\n\n}\n```\n\nThese lines define a function in Rust. The `main` function is special: it is\nalways the first code that runs in every executable Rust program. The first\nline declares a function named `main` that has no parameters and returns\nnothing. If there were parameters, they would go inside the parentheses, `()`.\n\nAlso, note that the function body is wrapped in curly brackets, `{}`. Rust\nrequires these around all function bodies. It’s good style to place the opening\ncurly bracket on the same line as the function declaration, adding one space in\nbetween.\n\nIf you want to stick to a standard style across Rust projects, you can use an\nautomatic formatter tool called `rustfmt` to format your code in a particular\nstyle. The Rust team has included this tool with the standard Rust distribution,\nlike `rustc`, so it should already be installed on your computer! Check the\nonline documentation for more details.\n\nInside the `main` function is the following code:\n\n```rust\n    println!(\"Hello, world!\");\n```\n\nThis line does all the work in this little program: it prints text to the\nscreen. There are four important details to notice here.\n\nFirst, Rust style is to indent with four spaces, not a tab.\n\nSecond, `println!` calls a Rust macro. If it called a function instead, it\nwould be entered as `println` (without the `!`). We’ll discuss Rust macros in\nmore detail in Chapter 19. For now, you just need to know that using a `!`\nmeans that you’re calling a macro instead of a normal function, and that macros\ndon’t always follow the same rules as functions.\n\nThird, you see the `\"Hello, world!\"` string. We pass this string as an argument\nto `println!`, and the string is printed to the screen.\n\nFourth, we end the line with a semicolon (`;`), which indicates that this\nexpression is over and the next one is ready to begin. Most lines of Rust code\nend with a semicolon.\n\n### Compiling and Running Are Separate Steps\n\nYou’ve just run a newly created program, so let’s examine each step in the\nprocess.\n\nBefore running a Rust program, you must compile it using the Rust compiler by\nentering the `rustc` command and passing it the name of your source file, like\nthis:\n\n```console\n$ rustc main.rs\n```\n\nIf you have a C or C++ background, you’ll notice that this is similar to `gcc`\nor `clang`. After compiling successfully, Rust outputs a binary executable.\n\nOn Linux, macOS, and PowerShell on Windows, you can see the executable by\nentering the `ls` command in your shell. On Linux and macOS, you’ll see two\nfiles. With PowerShell on Windows, you’ll see the same three files that you\nwould see using CMD.\n\n```console\n$ ls\nmain  main.rs\n```\n\nWith CMD on Windows, you would enter the following:\n\n```cmd\n> dir /B %= the /B option says to only show the file names =%\nmain.exe\nmain.pdb\nmain.rs\n```\n\nThis shows the source code file with the *.rs* extension, the executable file\n(*main.exe* on Windows, but *main* on all other platforms), and, when using\nWindows, a file containing debugging information with the *.pdb* extension.\nFrom here, you run the *main* or *main.exe* file, like this:\n\n```console\n$ ./main # or .\\main.exe on Windows\n```\n\nIf *main.rs* was your “Hello, world!” program, this line would print `Hello,\nworld!` to your terminal.\n\nIf you’re more familiar with a dynamic language, such as Ruby, Python, or\nJavaScript, you might not be used to compiling and running a program as\nseparate steps. Rust is an *ahead-of-time compiled* language, meaning you can\ncompile a program and give the executable to someone else, and they can run it\neven without having Rust installed. If you give someone a *.rb*, *.py*, or\n*.js* file, they need to have a Ruby, Python, or JavaScript implementation\ninstalled (respectively). But in those languages, you only need one command to\ncompile and run your program. Everything is a trade-off in language design.\n\nJust compiling with `rustc` is fine for simple programs, but as your project\ngrows, you’ll want to manage all the options and make it easy to share your\ncode. Next, we’ll introduce you to the Cargo tool, which will help you write\nreal-world Rust programs.\n\n[troubleshooting]: ch01-01-installation.html#troubleshooting",
     "dependencies": {
-      "0,0,1,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+      "0,0,1,0,0,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
     }
   },
   "@title@0,0": {
-    "value": "Foreword",
+    "value": "Hello, World!",
     "dependencies": {
       "0,0,1,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
     }
@@ -700,40 +696,145 @@ window.ftd = (function () {
 <div data-id="0,0,0,3,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,1,0:main" href="/ch01-01-installation/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Installation</a></div>
 <div data-id="0,0,0,3,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,2,0:main" href="/ch01-02-hello-world/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, World!</a></div>
 <div data-id="0,0,0,3,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,3,0:main" href="/ch01-03-hello-cargo/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, Cargo</a></div></div></div>
-<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="foreword" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Foreword</div>
-<div data-id="0,0,1,0,0,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>It wasn’t always so clear, but the Rust programming language is fundamentally
-about <em>empowerment</em>: no matter what kind of code you are writing now, Rust
-empowers you to reach farther, to program with confidence in a wider variety of
-domains than you did before.</p>
-<p>Take, for example, “systems-level” work that deals with low-level details of
-memory management, data representation, and concurrency. Traditionally, this
-realm of programming is seen as arcane, accessible only to a select few who
-have devoted the necessary years learning to avoid its infamous pitfalls. And
-even those who practice it do so with caution, lest their code be open to
-exploits, crashes, or corruption.</p>
-<p>Rust breaks down these barriers by eliminating the old pitfalls and providing a
-friendly, polished set of tools to help you along the way. Programmers who need
-to “dip down” into lower-level control can do so with Rust, without taking on
-the customary risk of crashes or security holes, and without having to learn
-the fine points of a fickle toolchain. Better yet, the language is designed to
-guide you naturally towards reliable code that is efficient in terms of speed
-and memory usage.</p>
-<p>Programmers who are already working with low-level code can use Rust to raise
-their ambitions. For example, introducing parallelism in Rust is a relatively
-low-risk operation: the compiler will catch the classical mistakes for you. And
-you can tackle more aggressive optimizations in your code with the confidence
-that you won’t accidentally introduce crashes or vulnerabilities.</p>
-<p>But Rust isn’t limited to low-level systems programming. It’s expressive and
-ergonomic enough to make CLI apps, web servers, and many other kinds of code
-quite pleasant to write — you’ll find simple examples of both later in the
-book. Working with Rust allows you to build skills that transfer from one
-domain to another; you can learn Rust by writing a web app, then apply those
-same skills to target your Raspberry Pi.</p>
-<p>This book fully embraces the potential of Rust to empower its users. It’s a
-friendly and approachable text intended to help you level up not just your
-knowledge of Rust, but also your reach and confidence as a programmer in
-general. So dive in, get ready to learn—and welcome to the Rust community!</p>
-<p>— Nicholas Matsakis and Aaron Turon</p>
+<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="hello-world" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Hello, World!</div>
+<div data-id="0,0,1,0,0,2:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Now that you’ve installed Rust, let’s write your first Rust program. It’s
+traditional when learning a new language to write a little program that prints
+the text <code>Hello, world!</code> to the screen, so we’ll do the same here!</p>
+<blockquote>
+<p>Note: This book assumes basic familiarity with the command line. Rust makes
+no specific demands about your editing or tooling or where your code lives, so
+if you prefer to use an integrated development environment (IDE) instead of
+the command line, feel free to use your favorite IDE. Many IDEs now have some
+degree of Rust support; check the IDE’s documentation for details. Recently,
+the Rust team has been focusing on enabling great IDE support, and progress
+has been made rapidly on that front!</p>
+</blockquote>
+<h3>Creating a Project Directory</h3>
+<p>You’ll start by making a directory to store your Rust code. It doesn’t matter
+to Rust where your code lives, but for the exercises and projects in this book,
+we suggest making a <em>projects</em> directory in your home directory and keeping all
+your projects there.</p>
+<p>Open a terminal and enter the following commands to make a <em>projects</em> directory
+and a directory for the “Hello, world!” project within the <em>projects</em> directory.</p>
+<p>For Linux, macOS, and PowerShell on Windows, enter this:</p>
+<pre><code class="language-console">$ mkdir ~/projects
+$ cd ~/projects
+$ mkdir hello_world
+$ cd hello_world
+</code></pre>
+<p>For Windows CMD, enter this:</p>
+<pre><code class="language-cmd">&gt; mkdir &quot;%USERPROFILE%\projects&quot;
+&gt; cd /d &quot;%USERPROFILE%\projects&quot;
+&gt; mkdir hello_world
+&gt; cd hello_world
+</code></pre>
+<h3>Writing and Running a Rust Program</h3>
+<p>Next, make a new source file and call it <em>main.rs</em>. Rust files always end with
+the <em>.rs</em> extension. If you’re using more than one word in your filename, use
+an underscore to separate them. For example, use <em>hello_world.rs</em> rather than
+<em>helloworld.rs</em>.</p>
+<p>Now open the <em>main.rs</em> file you just created and enter the code in Listing 1-1.</p>
+<p><!-- raw HTML omitted -->Filename: main.rs<!-- raw HTML omitted --></p>
+<pre><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre>
+<p><!-- raw HTML omitted -->Listing 1-1: A program that prints <code>Hello, world!</code><!-- raw HTML omitted --></p>
+<p>Save the file and go back to your terminal window. On Linux or macOS, enter
+the following commands to compile and run the file:</p>
+<pre><code class="language-console">$ rustc main.rs
+$ ./main
+Hello, world!
+</code></pre>
+<p>On Windows, enter the command <code>.\main.exe</code> instead of <code>./main</code>:</p>
+<pre><code class="language-powershell">&gt; rustc main.rs
+&gt; .\main.exe
+Hello, world!
+</code></pre>
+<p>Regardless of your operating system, the string <code>Hello, world!</code> should print to
+the terminal. If you don’t see this output, refer back to the
+<a href="ch01-01-installation.html#troubleshooting">“Troubleshooting”</a><!-- raw HTML omitted --> part of the Installation
+section for ways to get help.</p>
+<p>If <code>Hello, world!</code> did print, congratulations! You’ve officially written a Rust
+program. That makes you a Rust programmer—welcome!</p>
+<h3>Anatomy of a Rust Program</h3>
+<p>Let’s review in detail what just happened in your “Hello, world!” program.
+Here’s the first piece of the puzzle:</p>
+<pre><code class="language-rust">fn main() {
+
+}
+</code></pre>
+<p>These lines define a function in Rust. The <code>main</code> function is special: it is
+always the first code that runs in every executable Rust program. The first
+line declares a function named <code>main</code> that has no parameters and returns
+nothing. If there were parameters, they would go inside the parentheses, <code>()</code>.</p>
+<p>Also, note that the function body is wrapped in curly brackets, <code>{}</code>. Rust
+requires these around all function bodies. It’s good style to place the opening
+curly bracket on the same line as the function declaration, adding one space in
+between.</p>
+<p>If you want to stick to a standard style across Rust projects, you can use an
+automatic formatter tool called <code>rustfmt</code> to format your code in a particular
+style. The Rust team has included this tool with the standard Rust distribution,
+like <code>rustc</code>, so it should already be installed on your computer! Check the
+online documentation for more details.</p>
+<p>Inside the <code>main</code> function is the following code:</p>
+<pre><code class="language-rust">    println!(&quot;Hello, world!&quot;);
+</code></pre>
+<p>This line does all the work in this little program: it prints text to the
+screen. There are four important details to notice here.</p>
+<p>First, Rust style is to indent with four spaces, not a tab.</p>
+<p>Second, <code>println!</code> calls a Rust macro. If it called a function instead, it
+would be entered as <code>println</code> (without the <code>!</code>). We’ll discuss Rust macros in
+more detail in Chapter 19. For now, you just need to know that using a <code>!</code>
+means that you’re calling a macro instead of a normal function, and that macros
+don’t always follow the same rules as functions.</p>
+<p>Third, you see the <code>&quot;Hello, world!&quot;</code> string. We pass this string as an argument
+to <code>println!</code>, and the string is printed to the screen.</p>
+<p>Fourth, we end the line with a semicolon (<code>;</code>), which indicates that this
+expression is over and the next one is ready to begin. Most lines of Rust code
+end with a semicolon.</p>
+<h3>Compiling and Running Are Separate Steps</h3>
+<p>You’ve just run a newly created program, so let’s examine each step in the
+process.</p>
+<p>Before running a Rust program, you must compile it using the Rust compiler by
+entering the <code>rustc</code> command and passing it the name of your source file, like
+this:</p>
+<pre><code class="language-console">$ rustc main.rs
+</code></pre>
+<p>If you have a C or C++ background, you’ll notice that this is similar to <code>gcc</code>
+or <code>clang</code>. After compiling successfully, Rust outputs a binary executable.</p>
+<p>On Linux, macOS, and PowerShell on Windows, you can see the executable by
+entering the <code>ls</code> command in your shell. On Linux and macOS, you’ll see two
+files. With PowerShell on Windows, you’ll see the same three files that you
+would see using CMD.</p>
+<pre><code class="language-console">$ ls
+main  main.rs
+</code></pre>
+<p>With CMD on Windows, you would enter the following:</p>
+<pre><code class="language-cmd">&gt; dir /B %= the /B option says to only show the file names =%
+main.exe
+main.pdb
+main.rs
+</code></pre>
+<p>This shows the source code file with the <em>.rs</em> extension, the executable file
+(<em>main.exe</em> on Windows, but <em>main</em> on all other platforms), and, when using
+Windows, a file containing debugging information with the <em>.pdb</em> extension.
+From here, you run the <em>main</em> or <em>main.exe</em> file, like this:</p>
+<pre><code class="language-console">$ ./main # or .\main.exe on Windows
+</code></pre>
+<p>If <em>main.rs</em> was your “Hello, world!” program, this line would print <code>Hello, world!</code> to your terminal.</p>
+<p>If you’re more familiar with a dynamic language, such as Ruby, Python, or
+JavaScript, you might not be used to compiling and running a program as
+separate steps. Rust is an <em>ahead-of-time compiled</em> language, meaning you can
+compile a program and give the executable to someone else, and they can run it
+even without having Rust installed. If you give someone a <em>.rb</em>, <em>.py</em>, or
+<em>.js</em> file, they need to have a Ruby, Python, or JavaScript implementation
+installed (respectively). But in those languages, you only need one command to
+compile and run your program. Everything is a trade-off in language design.</p>
+<p>Just compiling with <code>rustc</code> is fine for simple programs, but as your project
+grows, you’ll want to manage all the options and make it easy to share your
+code. Next, we’ll introduce you to the Cargo tool, which will help you write
+real-world Rust programs.</p>
 </div></div></div></div></div></div></div><style>
 @font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
 font-style: light;;

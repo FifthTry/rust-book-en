@@ -6,18 +6,14 @@
     <title>The Rust Programming Language</title>
     <script type="ftd" id="ftd-data">
         {
-  "@body@0,0": {
-    "value": "It wasn’t always so clear, but the Rust programming language is fundamentally\nabout *empowerment*: no matter what kind of code you are writing now, Rust\nempowers you to reach farther, to program with confidence in a wider variety of\ndomains than you did before.\n\nTake, for example, “systems-level” work that deals with low-level details of\nmemory management, data representation, and concurrency. Traditionally, this\nrealm of programming is seen as arcane, accessible only to a select few who\nhave devoted the necessary years learning to avoid its infamous pitfalls. And\neven those who practice it do so with caution, lest their code be open to\nexploits, crashes, or corruption.\n\nRust breaks down these barriers by eliminating the old pitfalls and providing a\nfriendly, polished set of tools to help you along the way. Programmers who need\nto “dip down” into lower-level control can do so with Rust, without taking on\nthe customary risk of crashes or security holes, and without having to learn\nthe fine points of a fickle toolchain. Better yet, the language is designed to\nguide you naturally towards reliable code that is efficient in terms of speed\nand memory usage.\n\nProgrammers who are already working with low-level code can use Rust to raise\ntheir ambitions. For example, introducing parallelism in Rust is a relatively\nlow-risk operation: the compiler will catch the classical mistakes for you. And\nyou can tackle more aggressive optimizations in your code with the confidence\nthat you won’t accidentally introduce crashes or vulnerabilities.\n\nBut Rust isn’t limited to low-level systems programming. It’s expressive and\nergonomic enough to make CLI apps, web servers, and many other kinds of code\nquite pleasant to write — you’ll find simple examples of both later in the\nbook. Working with Rust allows you to build skills that transfer from one\ndomain to another; you can learn Rust by writing a web app, then apply those\nsame skills to target your Raspberry Pi.\n\nThis book fully embraces the potential of Rust to empower its users. It’s a\nfriendly and approachable text intended to help you level up not just your\nknowledge of Rust, but also your reach and confidence as a programmer in\ngeneral. So dive in, get ready to learn—and welcome to the Rust community!\n\n— Nicholas Matsakis and Aaron Turon",
-    "dependencies": {}
-  },
-  "@body@0,0,1": {
-    "value": "It wasn’t always so clear, but the Rust programming language is fundamentally\nabout *empowerment*: no matter what kind of code you are writing now, Rust\nempowers you to reach farther, to program with confidence in a wider variety of\ndomains than you did before.\n\nTake, for example, “systems-level” work that deals with low-level details of\nmemory management, data representation, and concurrency. Traditionally, this\nrealm of programming is seen as arcane, accessible only to a select few who\nhave devoted the necessary years learning to avoid its infamous pitfalls. And\neven those who practice it do so with caution, lest their code be open to\nexploits, crashes, or corruption.\n\nRust breaks down these barriers by eliminating the old pitfalls and providing a\nfriendly, polished set of tools to help you along the way. Programmers who need\nto “dip down” into lower-level control can do so with Rust, without taking on\nthe customary risk of crashes or security holes, and without having to learn\nthe fine points of a fickle toolchain. Better yet, the language is designed to\nguide you naturally towards reliable code that is efficient in terms of speed\nand memory usage.\n\nProgrammers who are already working with low-level code can use Rust to raise\ntheir ambitions. For example, introducing parallelism in Rust is a relatively\nlow-risk operation: the compiler will catch the classical mistakes for you. And\nyou can tackle more aggressive optimizations in your code with the confidence\nthat you won’t accidentally introduce crashes or vulnerabilities.\n\nBut Rust isn’t limited to low-level systems programming. It’s expressive and\nergonomic enough to make CLI apps, web servers, and many other kinds of code\nquite pleasant to write — you’ll find simple examples of both later in the\nbook. Working with Rust allows you to build skills that transfer from one\ndomain to another; you can learn Rust by writing a web app, then apply those\nsame skills to target your Raspberry Pi.\n\nThis book fully embraces the potential of Rust to empower its users. It’s a\nfriendly and approachable text intended to help you level up not just your\nknowledge of Rust, but also your reach and confidence as a programmer in\ngeneral. So dive in, get ready to learn—and welcome to the Rust community!\n\n— Nicholas Matsakis and Aaron Turon",
+  "@body@0,1": {
+    "value": "Cargo is Rust’s build system and package manager. Most Rustaceans use this tool\nto manage their Rust projects because Cargo handles a lot of tasks for you,\nsuch as building your code, downloading the libraries your code depends on, and\nbuilding those libraries. (We call the libraries that your code needs\n*dependencies*.)\n\nThe simplest Rust programs, like the one we’ve written so far, don’t have any\ndependencies. So if we had built the “Hello, world!” project with Cargo, it\nwould only use the part of Cargo that handles building your code. As you write\nmore complex Rust programs, you’ll add dependencies, and if you start a project\nusing Cargo, adding dependencies will be much easier to do.\n\nBecause the vast majority of Rust projects use Cargo, the rest of this book\nassumes that you’re using Cargo too. Cargo comes installed with Rust if you\nused the official installers discussed in the\n[“Installation”][installation]<!-- ignore --> section. If you installed Rust\nthrough some other means, check whether Cargo is installed by entering the\nfollowing into your terminal:\n\n```console\n$ cargo --version\n```\n\nIf you see a version number, you have it! If you see an error, such as `command\nnot found`, look at the documentation for your method of installation to\ndetermine how to install Cargo separately.\n\n### Creating a Project with Cargo\n\nLet’s create a new project using Cargo and look at how it differs from our\noriginal “Hello, world!” project. Navigate back to your *projects* directory (or\nwherever you decided to store your code). Then, on any operating system, run\nthe following:\n\n```console\n$ cargo new hello_cargo\n$ cd hello_cargo\n```\n\nThe first command created a new directory called *hello_cargo*. We’ve named\nour project *hello_cargo*, and Cargo creates its files in a directory of the\nsame name.\n\nGo into the *hello_cargo* directory and list the files. You’ll see that Cargo\nhas generated two files and one directory for us: a *Cargo.toml* file and a\n*src* directory with a *main.rs* file inside.\n\nIt has also initialized a new Git repository along with a *.gitignore* file.\nGit files won’t be generated if you run `cargo new` within an existing Git\nrepository; you can override this behavior by using `cargo new --vcs=git`.\n\n> Note: Git is a common version control system. You can change `cargo new` to\n> use a different version control system or no version control system by using\n> the `--vcs` flag. Run `cargo new --help` to see the available options.\n\nOpen *Cargo.toml* in your text editor of choice. It should look similar to the\ncode in Listing 1-2.\n\n<span class=\"filename\">Filename: Cargo.toml</span>\n\n```toml\n[package]\nname = \"hello_cargo\"\nversion = \"0.1.0\"\nedition = \"2021\"\n\n[dependencies]\n```\n\n<span class=\"caption\">Listing 1-2: Contents of *Cargo.toml* generated by `cargo\nnew`</span>\n\nThis file is in the [*TOML*](https://toml.io)<!-- ignore --> (*Tom’s Obvious,\nMinimal Language*) format, which is Cargo’s configuration format.\n\nThe first line, `[package]`, is a section heading that indicates that the\nfollowing statements are configuring a package. As we add more information to\nthis file, we’ll add other sections.\n\nThe next three lines set the configuration information Cargo needs to compile\nyour program: the name, the version, and the edition of Rust to use. We’ll talk\nabout the `edition` key in [Appendix E][appendix-e]<!-- ignore -->.\n\nThe last line, `[dependencies]`, is the start of a section for you to list any\nof your project’s dependencies. In Rust, packages of code are referred to as\n*crates*. We won’t need any other crates for this project, but we will in the\nfirst project in Chapter 2, so we’ll use this dependencies section then.\n\nNow open *src/main.rs* and take a look:\n\n<span class=\"filename\">Filename: src/main.rs</span>\n\n```rust\nfn main() {\n    println!(\"Hello, world!\");\n}\n```\n\nCargo has generated a “Hello, world!” program for you, just like the one we\nwrote in Listing 1-1! So far, the differences between our previous project and\nthe project Cargo generated are that Cargo placed the code in the *src*\ndirectory, and we have a *Cargo.toml* configuration file in the top directory.\n\nCargo expects your source files to live inside the *src* directory. The\ntop-level project directory is just for README files, license information,\nconfiguration files, and anything else not related to your code. Using Cargo\nhelps you organize your projects. There’s a place for everything, and\neverything is in its place.\n\nIf you started a project that doesn’t use Cargo, as we did with the “Hello,\nworld!” project, you can convert it to a project that does use Cargo. Move the\nproject code into the *src* directory and create an appropriate *Cargo.toml*\nfile.\n\n### Building and Running a Cargo Project\n\nNow let’s look at what’s different when we build and run the “Hello, world!”\nprogram with Cargo! From your *hello_cargo* directory, build your project by\nentering the following command:\n\n```console\n$ cargo build\n   Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)\n    Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs\n```\n\nThis command creates an executable file in *target/debug/hello_cargo* (or\n*target\\debug\\hello_cargo.exe* on Windows) rather than in your current\ndirectory. You can run the executable with this command:\n\n```console\n$ ./target/debug/hello_cargo # or .\\target\\debug\\hello_cargo.exe on Windows\nHello, world!\n```\n\nIf all goes well, `Hello, world!` should print to the terminal. Running `cargo\nbuild` for the first time also causes Cargo to create a new file at the top\nlevel: *Cargo.lock*. This file keeps track of the exact versions of\ndependencies in your project. This project doesn’t have dependencies, so the\nfile is a bit sparse. You won’t ever need to change this file manually; Cargo\nmanages its contents for you.\n\nWe just built a project with `cargo build` and ran it with\n`./target/debug/hello_cargo`, but we can also use `cargo run` to compile the\ncode and then run the resulting executable all in one command:\n\n```console\n$ cargo run\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\n     Running `target/debug/hello_cargo`\nHello, world!\n```\n\nNotice that this time we didn’t see output indicating that Cargo was compiling\n`hello_cargo`. Cargo figured out that the files hadn’t changed, so it just ran\nthe binary. If you had modified your source code, Cargo would have rebuilt the\nproject before running it, and you would have seen this output:\n\n```console\n$ cargo run\n   Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)\n    Finished dev [unoptimized + debuginfo] target(s) in 0.33 secs\n     Running `target/debug/hello_cargo`\nHello, world!\n```\n\nCargo also provides a command called `cargo check`. This command quickly checks\nyour code to make sure it compiles but doesn’t produce an executable:\n\n```console\n$ cargo check\n   Checking hello_cargo v0.1.0 (file:///projects/hello_cargo)\n    Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs\n```\n\nWhy would you not want an executable? Often, `cargo check` is much faster than\n`cargo build`, because it skips the step of producing an executable. If you’re\ncontinually checking your work while writing the code, using `cargo check` will\nspeed up the process! As such, many Rustaceans run `cargo check` periodically\nas they write their program to make sure it compiles. Then they run `cargo\nbuild` when they’re ready to use the executable.\n\nLet’s recap what we’ve learned so far about Cargo:\n\n* We can build a project using `cargo build`.\n* We can build and run a project in one step using `cargo run`.\n* We can build a project without producing a binary to check for errors using\n  `cargo check`.\n* Instead of saving the result of the build in the same directory as our code,\n  Cargo stores it in the *target/debug* directory.\n\nAn additional advantage of using Cargo is that the commands are the same no\nmatter which operating system you’re working on. So, at this point, we’ll no\nlonger provide specific instructions for Linux and macOS versus Windows.\n\n### Building for Release\n\nWhen your project is finally ready for release, you can use `cargo build\n--release` to compile it with optimizations. This command will create an\nexecutable in *target/release* instead of *target/debug*. The optimizations\nmake your Rust code run faster, but turning them on lengthens the time it takes\nfor your program to compile. This is why there are two different profiles: one\nfor development, when you want to rebuild quickly and often, and another for\nbuilding the final program you’ll give to a user that won’t be rebuilt\nrepeatedly and that will run as fast as possible. If you’re benchmarking your\ncode’s running time, be sure to run `cargo build --release` and benchmark with\nthe executable in *target/release*.\n\n### Cargo as Convention\n\nWith simple projects, Cargo doesn’t provide a lot of value over just using\n`rustc`, but it will prove its worth as your programs become more intricate.\nWith complex projects composed of multiple crates, it’s much easier to let\nCargo coordinate the build.\n\nEven though the `hello_cargo` project is simple, it now uses much of the real\ntooling you’ll use in the rest of your Rust career. In fact, to work on any\nexisting projects, you can use the following commands to check out the code\nusing Git, change to that project’s directory, and build:\n\n```console\n$ git clone example.org/someproject\n$ cd someproject\n$ cargo build\n```\n\nFor more information about Cargo, check out [its documentation].\n\n[its documentation]: https://doc.rust-lang.org/cargo/\n\n## Summary\n\nYou’re already off to a great start on your Rust journey! In this chapter,\nyou’ve learned how to:\n\n* Install the latest stable version of Rust using `rustup`\n* Update to a newer Rust version\n* Open locally installed documentation\n* Write and run a “Hello, world!” program using `rustc` directly\n* Create and run a new project using the conventions of Cargo\n\nThis is a great time to build a more substantial program to get used to reading\nand writing Rust code. So, in Chapter 2, we’ll build a guessing game program.\nIf you would rather start by learning how common programming concepts work in\nRust, see Chapter 3 and then return to Chapter 2.\n\n[installation]: ch01-01-installation.html#installation\n[appendix-e]: appendix-05-editions.html",
     "dependencies": {
-      "0,0,1,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+      "0,0,1,0,0,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
     }
   },
   "@title@0,0": {
-    "value": "Foreword",
+    "value": "Hello, Cargo!",
     "dependencies": {
       "0,0,1,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
     }
@@ -700,40 +696,189 @@ window.ftd = (function () {
 <div data-id="0,0,0,3,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,1,0:main" href="/ch01-01-installation/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Installation</a></div>
 <div data-id="0,0,0,3,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,2,0:main" href="/ch01-02-hello-world/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, World!</a></div>
 <div data-id="0,0,0,3,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,3,0:main" href="/ch01-03-hello-cargo/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, Cargo</a></div></div></div>
-<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="foreword" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Foreword</div>
-<div data-id="0,0,1,0,0,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>It wasn’t always so clear, but the Rust programming language is fundamentally
-about <em>empowerment</em>: no matter what kind of code you are writing now, Rust
-empowers you to reach farther, to program with confidence in a wider variety of
-domains than you did before.</p>
-<p>Take, for example, “systems-level” work that deals with low-level details of
-memory management, data representation, and concurrency. Traditionally, this
-realm of programming is seen as arcane, accessible only to a select few who
-have devoted the necessary years learning to avoid its infamous pitfalls. And
-even those who practice it do so with caution, lest their code be open to
-exploits, crashes, or corruption.</p>
-<p>Rust breaks down these barriers by eliminating the old pitfalls and providing a
-friendly, polished set of tools to help you along the way. Programmers who need
-to “dip down” into lower-level control can do so with Rust, without taking on
-the customary risk of crashes or security holes, and without having to learn
-the fine points of a fickle toolchain. Better yet, the language is designed to
-guide you naturally towards reliable code that is efficient in terms of speed
-and memory usage.</p>
-<p>Programmers who are already working with low-level code can use Rust to raise
-their ambitions. For example, introducing parallelism in Rust is a relatively
-low-risk operation: the compiler will catch the classical mistakes for you. And
-you can tackle more aggressive optimizations in your code with the confidence
-that you won’t accidentally introduce crashes or vulnerabilities.</p>
-<p>But Rust isn’t limited to low-level systems programming. It’s expressive and
-ergonomic enough to make CLI apps, web servers, and many other kinds of code
-quite pleasant to write — you’ll find simple examples of both later in the
-book. Working with Rust allows you to build skills that transfer from one
-domain to another; you can learn Rust by writing a web app, then apply those
-same skills to target your Raspberry Pi.</p>
-<p>This book fully embraces the potential of Rust to empower its users. It’s a
-friendly and approachable text intended to help you level up not just your
-knowledge of Rust, but also your reach and confidence as a programmer in
-general. So dive in, get ready to learn—and welcome to the Rust community!</p>
-<p>— Nicholas Matsakis and Aaron Turon</p>
+<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="hello-cargo" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Hello, Cargo!</div>
+<div data-id="0,0,1,0,0,2:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Cargo is Rust’s build system and package manager. Most Rustaceans use this tool
+to manage their Rust projects because Cargo handles a lot of tasks for you,
+such as building your code, downloading the libraries your code depends on, and
+building those libraries. (We call the libraries that your code needs
+<em>dependencies</em>.)</p>
+<p>The simplest Rust programs, like the one we’ve written so far, don’t have any
+dependencies. So if we had built the “Hello, world!” project with Cargo, it
+would only use the part of Cargo that handles building your code. As you write
+more complex Rust programs, you’ll add dependencies, and if you start a project
+using Cargo, adding dependencies will be much easier to do.</p>
+<p>Because the vast majority of Rust projects use Cargo, the rest of this book
+assumes that you’re using Cargo too. Cargo comes installed with Rust if you
+used the official installers discussed in the
+<a href="ch01-01-installation.html#installation">“Installation”</a><!-- raw HTML omitted --> section. If you installed Rust
+through some other means, check whether Cargo is installed by entering the
+following into your terminal:</p>
+<pre><code class="language-console">$ cargo --version
+</code></pre>
+<p>If you see a version number, you have it! If you see an error, such as <code>command not found</code>, look at the documentation for your method of installation to
+determine how to install Cargo separately.</p>
+<h3>Creating a Project with Cargo</h3>
+<p>Let’s create a new project using Cargo and look at how it differs from our
+original “Hello, world!” project. Navigate back to your <em>projects</em> directory (or
+wherever you decided to store your code). Then, on any operating system, run
+the following:</p>
+<pre><code class="language-console">$ cargo new hello_cargo
+$ cd hello_cargo
+</code></pre>
+<p>The first command created a new directory called <em>hello_cargo</em>. We’ve named
+our project <em>hello_cargo</em>, and Cargo creates its files in a directory of the
+same name.</p>
+<p>Go into the <em>hello_cargo</em> directory and list the files. You’ll see that Cargo
+has generated two files and one directory for us: a <em>Cargo.toml</em> file and a
+<em>src</em> directory with a <em>main.rs</em> file inside.</p>
+<p>It has also initialized a new Git repository along with a <em>.gitignore</em> file.
+Git files won’t be generated if you run <code>cargo new</code> within an existing Git
+repository; you can override this behavior by using <code>cargo new --vcs=git</code>.</p>
+<blockquote>
+<p>Note: Git is a common version control system. You can change <code>cargo new</code> to
+use a different version control system or no version control system by using
+the <code>--vcs</code> flag. Run <code>cargo new --help</code> to see the available options.</p>
+</blockquote>
+<p>Open <em>Cargo.toml</em> in your text editor of choice. It should look similar to the
+code in Listing 1-2.</p>
+<p><!-- raw HTML omitted -->Filename: Cargo.toml<!-- raw HTML omitted --></p>
+<pre><code class="language-toml">[package]
+name = &quot;hello_cargo&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
+
+[dependencies]
+</code></pre>
+<p><!-- raw HTML omitted -->Listing 1-2: Contents of <em>Cargo.toml</em> generated by <code>cargo new</code><!-- raw HTML omitted --></p>
+<p>This file is in the <a href="https://toml.io"><em>TOML</em></a><!-- raw HTML omitted --> (<em>Tom’s Obvious,
+Minimal Language</em>) format, which is Cargo’s configuration format.</p>
+<p>The first line, <code>[package]</code>, is a section heading that indicates that the
+following statements are configuring a package. As we add more information to
+this file, we’ll add other sections.</p>
+<p>The next three lines set the configuration information Cargo needs to compile
+your program: the name, the version, and the edition of Rust to use. We’ll talk
+about the <code>edition</code> key in <a href="appendix-05-editions.html">Appendix E</a><!-- raw HTML omitted -->.</p>
+<p>The last line, <code>[dependencies]</code>, is the start of a section for you to list any
+of your project’s dependencies. In Rust, packages of code are referred to as
+<em>crates</em>. We won’t need any other crates for this project, but we will in the
+first project in Chapter 2, so we’ll use this dependencies section then.</p>
+<p>Now open <em>src/main.rs</em> and take a look:</p>
+<p><!-- raw HTML omitted -->Filename: src/main.rs<!-- raw HTML omitted --></p>
+<pre><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre>
+<p>Cargo has generated a “Hello, world!” program for you, just like the one we
+wrote in Listing 1-1! So far, the differences between our previous project and
+the project Cargo generated are that Cargo placed the code in the <em>src</em>
+directory, and we have a <em>Cargo.toml</em> configuration file in the top directory.</p>
+<p>Cargo expects your source files to live inside the <em>src</em> directory. The
+top-level project directory is just for README files, license information,
+configuration files, and anything else not related to your code. Using Cargo
+helps you organize your projects. There’s a place for everything, and
+everything is in its place.</p>
+<p>If you started a project that doesn’t use Cargo, as we did with the “Hello,
+world!” project, you can convert it to a project that does use Cargo. Move the
+project code into the <em>src</em> directory and create an appropriate <em>Cargo.toml</em>
+file.</p>
+<h3>Building and Running a Cargo Project</h3>
+<p>Now let’s look at what’s different when we build and run the “Hello, world!”
+program with Cargo! From your <em>hello_cargo</em> directory, build your project by
+entering the following command:</p>
+<pre><code class="language-console">$ cargo build
+   Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
+</code></pre>
+<p>This command creates an executable file in <em>target/debug/hello_cargo</em> (or
+<em>target\debug\hello_cargo.exe</em> on Windows) rather than in your current
+directory. You can run the executable with this command:</p>
+<pre><code class="language-console">$ ./target/debug/hello_cargo # or .\target\debug\hello_cargo.exe on Windows
+Hello, world!
+</code></pre>
+<p>If all goes well, <code>Hello, world!</code> should print to the terminal. Running <code>cargo build</code> for the first time also causes Cargo to create a new file at the top
+level: <em>Cargo.lock</em>. This file keeps track of the exact versions of
+dependencies in your project. This project doesn’t have dependencies, so the
+file is a bit sparse. You won’t ever need to change this file manually; Cargo
+manages its contents for you.</p>
+<p>We just built a project with <code>cargo build</code> and ran it with
+<code>./target/debug/hello_cargo</code>, but we can also use <code>cargo run</code> to compile the
+code and then run the resulting executable all in one command:</p>
+<pre><code class="language-console">$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
+     Running `target/debug/hello_cargo`
+Hello, world!
+</code></pre>
+<p>Notice that this time we didn’t see output indicating that Cargo was compiling
+<code>hello_cargo</code>. Cargo figured out that the files hadn’t changed, so it just ran
+the binary. If you had modified your source code, Cargo would have rebuilt the
+project before running it, and you would have seen this output:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.33 secs
+     Running `target/debug/hello_cargo`
+Hello, world!
+</code></pre>
+<p>Cargo also provides a command called <code>cargo check</code>. This command quickly checks
+your code to make sure it compiles but doesn’t produce an executable:</p>
+<pre><code class="language-console">$ cargo check
+   Checking hello_cargo v0.1.0 (file:///projects/hello_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
+</code></pre>
+<p>Why would you not want an executable? Often, <code>cargo check</code> is much faster than
+<code>cargo build</code>, because it skips the step of producing an executable. If you’re
+continually checking your work while writing the code, using <code>cargo check</code> will
+speed up the process! As such, many Rustaceans run <code>cargo check</code> periodically
+as they write their program to make sure it compiles. Then they run <code>cargo build</code> when they’re ready to use the executable.</p>
+<p>Let’s recap what we’ve learned so far about Cargo:</p>
+<ul>
+<li>We can build a project using <code>cargo build</code>.</li>
+<li>We can build and run a project in one step using <code>cargo run</code>.</li>
+<li>We can build a project without producing a binary to check for errors using
+<code>cargo check</code>.</li>
+<li>Instead of saving the result of the build in the same directory as our code,
+Cargo stores it in the <em>target/debug</em> directory.</li>
+</ul>
+<p>An additional advantage of using Cargo is that the commands are the same no
+matter which operating system you’re working on. So, at this point, we’ll no
+longer provide specific instructions for Linux and macOS versus Windows.</p>
+<h3>Building for Release</h3>
+<p>When your project is finally ready for release, you can use <code>cargo build --release</code> to compile it with optimizations. This command will create an
+executable in <em>target/release</em> instead of <em>target/debug</em>. The optimizations
+make your Rust code run faster, but turning them on lengthens the time it takes
+for your program to compile. This is why there are two different profiles: one
+for development, when you want to rebuild quickly and often, and another for
+building the final program you’ll give to a user that won’t be rebuilt
+repeatedly and that will run as fast as possible. If you’re benchmarking your
+code’s running time, be sure to run <code>cargo build --release</code> and benchmark with
+the executable in <em>target/release</em>.</p>
+<h3>Cargo as Convention</h3>
+<p>With simple projects, Cargo doesn’t provide a lot of value over just using
+<code>rustc</code>, but it will prove its worth as your programs become more intricate.
+With complex projects composed of multiple crates, it’s much easier to let
+Cargo coordinate the build.</p>
+<p>Even though the <code>hello_cargo</code> project is simple, it now uses much of the real
+tooling you’ll use in the rest of your Rust career. In fact, to work on any
+existing projects, you can use the following commands to check out the code
+using Git, change to that project’s directory, and build:</p>
+<pre><code class="language-console">$ git clone example.org/someproject
+$ cd someproject
+$ cargo build
+</code></pre>
+<p>For more information about Cargo, check out <a href="https://doc.rust-lang.org/cargo/">its documentation</a>.</p>
+<h2>Summary</h2>
+<p>You’re already off to a great start on your Rust journey! In this chapter,
+you’ve learned how to:</p>
+<ul>
+<li>Install the latest stable version of Rust using <code>rustup</code></li>
+<li>Update to a newer Rust version</li>
+<li>Open locally installed documentation</li>
+<li>Write and run a “Hello, world!” program using <code>rustc</code> directly</li>
+<li>Create and run a new project using the conventions of Cargo</li>
+</ul>
+<p>This is a great time to build a more substantial program to get used to reading
+and writing Rust code. So, in Chapter 2, we’ll build a guessing game program.
+If you would rather start by learning how common programming concepts work in
+Rust, see Chapter 3 and then return to Chapter 2.</p>
 </div></div></div></div></div></div></div><style>
 @font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
 font-style: light;;
