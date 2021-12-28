@@ -1,7 +1,7 @@
 -- import: fpm
 
 -- fpm.package: fifthtry.github.io/welcome-fpm-book/
-name: welcome-fpm-book
+zip: github.com/fifthtry/welcome-fpm-book/archive/refs/heads/main.zip
 
 -- fpm.dependency: fifthtry/flash-theme
 repo: github
@@ -10,11 +10,3 @@ repo: github
 woff2: https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2
 style: light
 unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-
-
-
-
-
-
-
-
