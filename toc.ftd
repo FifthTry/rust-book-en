@@ -1,4 +1,4 @@
--- import: fifthtry/flash-theme as book
+-- import: fifthtry.github.io/Flash-theme as book
 
 -- book.toc:
 $processor$: toc
