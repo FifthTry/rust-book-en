@@ -1,11 +1,9 @@
--- import: fifthtry.github.io/Flash-theme as article
--- import: toc
 
--- article.page:
+-- ft.page:
 
--- article.h1: Hello, World!
+-- ft.h1: Hello, World!
 
--- article.markdown:
+-- ft.markdown:
 
 Now that you’ve installed Rust, let’s write your first Rust program. It’s
 traditional when learning a new language to write a little program that prints

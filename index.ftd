@@ -1,13 +1,11 @@
--- import: fifthtry.github.io/Flash-theme as article
--- import: toc
 
--- article.page:
+-- ft.page:
 
--- article.h1: The Rust Programming Language
+-- ft.h1: The Rust Programming Language
 
--- article.h2: *by Steve Klabnik and Carol Nichols, with contributions from the Rust Community*
+-- ft.h2: *by Steve Klabnik and Carol Nichols, with contributions from the Rust Community*
 
--- article.markdown:
+-- ft.markdown:
 
 This version of the text assumes you’re using Rust 1.57 or later with
 `edition="2018"` in *Cargo.toml* of all projects to use Rust 2018 Edition

@@ -1,11 +1,9 @@
--- import: fifthtry.github.io/Flash-theme as article
--- import: toc
 
--- article.page:
+-- ft.page:
 
--- article.h1: Installation
+-- ft.h1: Installation
 
--- article.markdown:
+-- ft.markdown:
 
 The first step is to install Rust. We’ll download Rust through `rustup`, a
 command line tool for managing Rust versions and associated tools. You’ll need

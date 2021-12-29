@@ -1,11 +1,9 @@
--- import: fifthtry.github.io/Flash-theme as article
--- import: toc
 
--- article.page:
+-- ft.page:
 
--- article.h1: Hello, Cargo!
+-- ft.h1: Hello, Cargo!
 
--- article.markdown:
+-- ft.markdown:
 
 
 Cargo is Rust’s build system and package manager. Most Rustaceans use this tool

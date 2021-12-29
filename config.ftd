@@ -1,6 +1,6 @@
--- import: fifthtry.github.io/Flash-theme as book
+-- import: fifthtry.github.io/Flash-theme as ft
 
--- book.toc:
+-- ft.toc:
 $processor$: toc
 
 - index.html

@@ -1,9 +1,7 @@
--- import: fifthtry.github.io/Flash-theme as article
--- import: toc
 
--- article.page:
+-- ft.page:
 
--- article.h1: Foreword
+-- ft.h1: Foreword
 
 It wasn’t always so clear, but the Rust programming language is fundamentally
 about *empowerment*: no matter what kind of code you are writing now, Rust
