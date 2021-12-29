@@ -2,34 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><base href="/rust-book-en/">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">̦
-    <title>The Rust Programming Language</title>
-
-    <script type="ftd" id="ftd-data-message">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Language</title>
+    <script type="ftd" id="ftd-data">
         {
-  "fpm#document-id": {
-    "value": "ch01-01-installation.ftd",
-    "dependencies": {}
-  }
-}
-    </script>
-    <script type="ftd" id="ftd-external-children-message">
-        {}
-    </script>
-    <script type="ftd" id="ftd-data-main">
-        {
-  "@body@0,1": {
-    "value": "The first step is to install Rust. We’ll download Rust through `rustup`, a\ncommand line tool for managing Rust versions and associated tools. You’ll need\nan internet connection for the download.\n\n> Note: If you prefer not to use `rustup` for some reason, please see the\n> [Other Rust Installation Methods page][otherinstall] for more options.\n\n[otherinstall]: https://forge.rust-lang.org/infra/other-installation-methods.html\n\nThe following steps install the latest stable version of the Rust compiler.\nRust’s stability guarantees ensure that all the examples in the book that\ncompile will continue to compile with newer Rust versions. The output might\ndiffer slightly between versions, because Rust often improves error messages\nand warnings. In other words, any newer, stable version of Rust you install\nusing these steps should work as expected with the content of this book.\n\n> ### Command Line Notation\n>\n> In this chapter and throughout the book, we’ll show some commands used in the\n> terminal. Lines that you should enter in a terminal all start with `$`. You\n> don’t need to type in the `$` character; it indicates the start of each\n> command. Lines that don’t start with `$` typically show the output of the\n> previous command. Additionally, PowerShell-specific examples will use `>`\n> rather than `$`.\n\n### Installing `rustup` on Linux or macOS\n\nIf you’re using Linux or macOS, open a terminal and enter the following command:\n\n```console\n$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh\n```\n\nThe command downloads a script and starts the installation of the `rustup`\ntool, which installs the latest stable version of Rust. You might be prompted\nfor your password. If the install is successful, the following line will appear:\n\n```text\nRust is installed now. Great!\n```\n\nYou will also need a linker, which is a program that Rust uses to join its\ncompiled outputs into one file. It is likely you already have one. If you get\nlinker errors, you should install a C compiler, which will typically include a\nlinker. A C compiler is also useful because some common Rust packages depend on\nC code and will need a C compiler.\n\nOn macOS, you can get a C compiler by running:\n\n```console\n$ xcode-select --install\n```\n\nLinux users should generally install GCC or Clang, according to their\ndistribution’s documentation. For example, if you use Ubuntu, you can install\nthe `build-essential` package.\n\n### Installing `rustup` on Windows\n\nOn Windows, go to [https://www.rust-lang.org/tools/install][install] and follow\nthe instructions for installing Rust. At some point in the installation, you’ll\nreceive a message explaining that you’ll also need the C++ build tools for\nVisual Studio 2013 or later. The easiest way to acquire the build tools is to\ninstall [Build Tools for Visual Studio 2019][visualstudio]. When asked which\nworkloads to install make sure “C++ build tools” is selected and that the\nWindows 10 SDK and the English language pack components are included.\n\n[install]: https://www.rust-lang.org/tools/install\n[visualstudio]: https://visualstudio.microsoft.com/visual-cpp-build-tools/\n\nThe rest of this book uses commands that work in both *cmd.exe* and PowerShell.\nIf there are specific differences, we’ll explain which to use.\n\n### Updating and Uninstalling\n\nAfter you’ve installed Rust via `rustup`, updating to the latest version is\neasy. From your shell, run the following update script:\n\n```console\n$ rustup update\n```\n\nTo uninstall Rust and `rustup`, run the following uninstall script from your\nshell:\n\n```console\n$ rustup self uninstall\n```\n\n### Troubleshooting\n\nTo check whether you have Rust installed correctly, open a shell and enter this\nline:\n\n```console\n$ rustc --version\n```\n\nYou should see the version number, commit hash, and commit date for the latest\nstable version that has been released in the following format:\n\n```text\nrustc x.y.z (abcabcabc yyyy-mm-dd)\n```\n\nIf you see this information, you have installed Rust successfully! If you don’t\nsee this information and you’re on Windows, check that Rust is in your `%PATH%`\nsystem variable. If that’s all correct and Rust still isn’t working, there are\na number of places you can get help. The easiest is the #beginners channel on\n[the official Rust Discord][discord]. There, you can chat with other Rustaceans\n(a silly nickname we call ourselves) who can help you out. Other great\nresources include [the Users forum][users] and [Stack Overflow][stackoverflow].\n\n[discord]: https://discord.gg/rust-lang\n[users]: https://users.rust-lang.org/\n[stackoverflow]: https://stackoverflow.com/questions/tagged/rust\n\n### Local Documentation\n\nThe installation of Rust also includes a copy of the documentation locally, so\nyou can read it offline. Run `rustup doc` to open the local documentation in\nyour browser.\n\nAny time a type or function is provided by the standard library and you’re not\nsure what it does or how to use it, use the application programming interface\n(API) documentation to find out!",
-    "dependencies": {
-      "0,0,1,0,0,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "@title@0,0": {
-    "value": "Installation",
-    "dependencies": {
-      "0,0,1,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
   "fifthtry.github.io/Flash-theme#base_size": {
     "value": "18",
     "dependencies": {}
@@ -77,22 +53,16 @@
   "fifthtry.github.io/Flash-theme#title_size": {
     "value": "36",
     "dependencies": {}
+  },
+  "fpm#document-id": {
+    "value": "FPM/translation-status.ftd",
+    "dependencies": {}
   }
 }
     </script>
-    <script type="ftd" id="ftd-external-children-main">
-        {
-  "main-container-external:0": [
-    {
-      "condition": [
-        "main-container:0,0,1,0"
-      ],
-      "set_at": "main-container:0,0,1,0"
-    }
-  ]
-}
+    <script type="ftd" id="ftd-external-children">
+        {}
     </script>
-
     <script>
         // all ftd_utils are meant to be pure functions only: they can only depend on the
 // input passed, not on closures or global data etc
@@ -568,7 +538,6 @@ window.ftd = (function () {
 })();
 
     </script>
-
     <style>
         body {
             margin: 0;
@@ -698,126 +667,33 @@ window.ftd = (function () {
             margin: 0;
         }
 
-    </style>
+        </style>
 
 </head>
-<body>
+    <body>
 
-<div id="message"><div data-id="message:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:message" data-spacing="margin-left:10px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-left: auto; margin-top: auto; white-space: initial" class="ft_md"><div data-id="0,0:message" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Other available languages:</div>
-<a data-id="0,1:message" href="https://fifthtry.github.io/rust-book-hi/ch01-01-installation/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; font-weight: 400; margin-left: 10px; text-align: left; white-space: initial" class="ft_md">hi</a></div></div><style>
+        <div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; align-self: flex-start; background-color: rgba(243,243,243,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; max-width: 1000px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial; width: 20%" class="ft_md">Language</div>
+<div data-id="0,0,1:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">No of translated documents</div>
+<div data-id="0,0,2:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">No of outdated documents</div>
+<div data-id="0,0,3:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">Never marked documents</div>
+<div data-id="0,0,4:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">Missing documents</div></div>
+<div data-id="0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><a data-id="0,1,0:main" href="https://fifthtry.github.io/rust-book-hi/FPM/translation-status/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; font-weight: 400; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">hi</a>
+<div data-id="0,1,1:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; line-height: 26px; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">4</div>
+<div data-id="0,1,2:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; line-height: 26px; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">7</div>
+<div data-id="0,1,3:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; line-height: 26px; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">0</div>
+<div data-id="0,1,4:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; line-height: 26px; padding: 5px; text-align: left; white-space: initial; width: 20%" class="ft_md">0</div></div></div></div><style>
 @font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
 font-style: light;;
 src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
-font-family: Open Sans }</style></div>
-<div id="main"><div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-row:0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: sticky; top: 0px; white-space: initial; width: 300px" class="ft_md"><div data-id="0,0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,0:main" href="index.html" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">The Rust Programming Language</a></div>
-<div data-id="0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,1,0:main" href="foreword/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Foreword</a></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,2,0:main" href="ch00-00-introduction/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Introduction</a></div>
-<div data-id="0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,0:main" href="ch01-00-getting-started/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Getting Started</a>
-<div data-id="0,0,0,3,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,1,0:main" href="ch01-01-installation/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Installation</a></div>
-<div data-id="0,0,0,3,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,2,0:main" href="ch01-02-hello-world/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, World!</a></div>
-<div data-id="0,0,0,3,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,3,0:main" href="ch01-03-hello-cargo/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Hello, Cargo</a></div></div></div>
-<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="installation" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Installation</div>
-<div data-id="0,0,1,0,0,2:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>The first step is to install Rust. We’ll download Rust through <code>rustup</code>, a
-command line tool for managing Rust versions and associated tools. You’ll need
-an internet connection for the download.</p>
-<blockquote>
-<p>Note: If you prefer not to use <code>rustup</code> for some reason, please see the
-<a href="https://forge.rust-lang.org/infra/other-installation-methods.html">Other Rust Installation Methods page</a> for more options.</p>
-</blockquote>
-<p>The following steps install the latest stable version of the Rust compiler.
-Rust’s stability guarantees ensure that all the examples in the book that
-compile will continue to compile with newer Rust versions. The output might
-differ slightly between versions, because Rust often improves error messages
-and warnings. In other words, any newer, stable version of Rust you install
-using these steps should work as expected with the content of this book.</p>
-<blockquote>
-<h3>Command Line Notation</h3>
-<p>In this chapter and throughout the book, we’ll show some commands used in the
-terminal. Lines that you should enter in a terminal all start with <code>$</code>. You
-don’t need to type in the <code>$</code> character; it indicates the start of each
-command. Lines that don’t start with <code>$</code> typically show the output of the
-previous command. Additionally, PowerShell-specific examples will use <code>&gt;</code>
-rather than <code>$</code>.</p>
-</blockquote>
-<h3>Installing <code>rustup</code> on Linux or macOS</h3>
-<p>If you’re using Linux or macOS, open a terminal and enter the following command:</p>
-<pre><code class="language-console">$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-</code></pre>
-<p>The command downloads a script and starts the installation of the <code>rustup</code>
-tool, which installs the latest stable version of Rust. You might be prompted
-for your password. If the install is successful, the following line will appear:</p>
-<pre><code class="language-text">Rust is installed now. Great!
-</code></pre>
-<p>You will also need a linker, which is a program that Rust uses to join its
-compiled outputs into one file. It is likely you already have one. If you get
-linker errors, you should install a C compiler, which will typically include a
-linker. A C compiler is also useful because some common Rust packages depend on
-C code and will need a C compiler.</p>
-<p>On macOS, you can get a C compiler by running:</p>
-<pre><code class="language-console">$ xcode-select --install
-</code></pre>
-<p>Linux users should generally install GCC or Clang, according to their
-distribution’s documentation. For example, if you use Ubuntu, you can install
-the <code>build-essential</code> package.</p>
-<h3>Installing <code>rustup</code> on Windows</h3>
-<p>On Windows, go to <a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a> and follow
-the instructions for installing Rust. At some point in the installation, you’ll
-receive a message explaining that you’ll also need the C++ build tools for
-Visual Studio 2013 or later. The easiest way to acquire the build tools is to
-install <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Build Tools for Visual Studio 2019</a>. When asked which
-workloads to install make sure “C++ build tools” is selected and that the
-Windows 10 SDK and the English language pack components are included.</p>
-<p>The rest of this book uses commands that work in both <em>cmd.exe</em> and PowerShell.
-If there are specific differences, we’ll explain which to use.</p>
-<h3>Updating and Uninstalling</h3>
-<p>After you’ve installed Rust via <code>rustup</code>, updating to the latest version is
-easy. From your shell, run the following update script:</p>
-<pre><code class="language-console">$ rustup update
-</code></pre>
-<p>To uninstall Rust and <code>rustup</code>, run the following uninstall script from your
-shell:</p>
-<pre><code class="language-console">$ rustup self uninstall
-</code></pre>
-<h3>Troubleshooting</h3>
-<p>To check whether you have Rust installed correctly, open a shell and enter this
-line:</p>
-<pre><code class="language-console">$ rustc --version
-</code></pre>
-<p>You should see the version number, commit hash, and commit date for the latest
-stable version that has been released in the following format:</p>
-<pre><code class="language-text">rustc x.y.z (abcabcabc yyyy-mm-dd)
-</code></pre>
-<p>If you see this information, you have installed Rust successfully! If you don’t
-see this information and you’re on Windows, check that Rust is in your <code>%PATH%</code>
-system variable. If that’s all correct and Rust still isn’t working, there are
-a number of places you can get help. The easiest is the #beginners channel on
-<a href="https://discord.gg/rust-lang">the official Rust Discord</a>. There, you can chat with other Rustaceans
-(a silly nickname we call ourselves) who can help you out. Other great
-resources include <a href="https://users.rust-lang.org/">the Users forum</a> and <a href="https://stackoverflow.com/questions/tagged/rust">Stack Overflow</a>.</p>
-<h3>Local Documentation</h3>
-<p>The installation of Rust also includes a copy of the documentation locally, so
-you can read it offline. Run <code>rustup doc</code> to open the local documentation in
-your browser.</p>
-<p>Any time a type or function is provided by the standard library and you’re not
-sure what it does or how to use it, use the application programming interface
-(API) documentation to find out!</p>
-</div></div></div></div></div></div></div><style>
-@font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
-font-style: light;;
-src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
-font-family: Open Sans }</style></div>
+font-family: Open Sans }</style>
 
-<script>
-    window.ftd.init(
-        "message",
-        JSON.parse(document.getElementById("ftd-data-message").innerText),
-        JSON.parse(document.getElementById("ftd-external-children-message").innerText)
-    );
-    window.ftd.init(
-        "main",
-        JSON.parse(document.getElementById("ftd-data-main").innerText),
-        JSON.parse(document.getElementById("ftd-external-children-main").innerText)
-    );
-</script>
-</body>
+
+    <script>
+        window.ftd.init(
+            "main",
+            JSON.parse(document.getElementById("ftd-data").innerText),
+            JSON.parse(document.getElementById("ftd-external-children").innerText)
+        );
+    </script>
+    </body>
 </html>

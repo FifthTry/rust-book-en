@@ -3,6 +3,7 @@
 -- fpm.package: fifthtry.github.io/rust-book-en/
 zip: github.com/fifthtry/rust-book-en/archive/refs/heads/main.zip
 language: en
+translation: fifthtry.github.io/rust-book-hi
 
 -- fpm.dependency: fifthtry.github.io/Flash-theme
 

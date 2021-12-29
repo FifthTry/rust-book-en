@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><base href="/rust-book-en/">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">̦
     <title>The Rust Programming Language</title>
-    <script type="ftd" id="ftd-data">
+
+    <script type="ftd" id="ftd-data-message">
+        {
+  "fpm#document-id": {
+    "value": "ch01-02-hello-world.ftd",
+    "dependencies": {}
+  }
+}
+    </script>
+    <script type="ftd" id="ftd-external-children-message">
+        {}
+    </script>
+    <script type="ftd" id="ftd-data-main">
         {
   "@body@0,1": {
     "value": "Now that you’ve installed Rust, let’s write your first Rust program. It’s\ntraditional when learning a new language to write a little program that prints\nthe text `Hello, world!` to the screen, so we’ll do the same here!\n\n> Note: This book assumes basic familiarity with the command line. Rust makes\n> no specific demands about your editing or tooling or where your code lives, so\n> if you prefer to use an integrated development environment (IDE) instead of\n> the command line, feel free to use your favorite IDE. Many IDEs now have some\n> degree of Rust support; check the IDE’s documentation for details. Recently,\n> the Rust team has been focusing on enabling great IDE support, and progress\n> has been made rapidly on that front!\n\n### Creating a Project Directory\n\nYou’ll start by making a directory to store your Rust code. It doesn’t matter\nto Rust where your code lives, but for the exercises and projects in this book,\nwe suggest making a *projects* directory in your home directory and keeping all\nyour projects there.\n\nOpen a terminal and enter the following commands to make a *projects* directory\nand a directory for the “Hello, world!” project within the *projects* directory.\n\nFor Linux, macOS, and PowerShell on Windows, enter this:\n\n```console\n$ mkdir ~/projects\n$ cd ~/projects\n$ mkdir hello_world\n$ cd hello_world\n```\n\nFor Windows CMD, enter this:\n\n```cmd\n> mkdir \"%USERPROFILE%\\projects\"\n> cd /d \"%USERPROFILE%\\projects\"\n> mkdir hello_world\n> cd hello_world\n```\n\n### Writing and Running a Rust Program\n\nNext, make a new source file and call it *main.rs*. Rust files always end with\nthe *.rs* extension. If you’re using more than one word in your filename, use\nan underscore to separate them. For example, use *hello_world.rs* rather than\n*helloworld.rs*.\n\nNow open the *main.rs* file you just created and enter the code in Listing 1-1.\n\n<span class=\"filename\">Filename: main.rs</span>\n\n```rust\nfn main() {\n    println!(\"Hello, world!\");\n}\n```\n\n<span class=\"caption\">Listing 1-1: A program that prints `Hello, world!`</span>\n\nSave the file and go back to your terminal window. On Linux or macOS, enter\nthe following commands to compile and run the file:\n\n```console\n$ rustc main.rs\n$ ./main\nHello, world!\n```\n\nOn Windows, enter the command `.\\main.exe` instead of `./main`:\n\n```powershell\n> rustc main.rs\n> .\\main.exe\nHello, world!\n```\n\nRegardless of your operating system, the string `Hello, world!` should print to\nthe terminal. If you don’t see this output, refer back to the\n[“Troubleshooting”][troubleshooting]<!-- ignore --> part of the Installation\nsection for ways to get help.\n\nIf `Hello, world!` did print, congratulations! You’ve officially written a Rust\nprogram. That makes you a Rust programmer—welcome!\n\n### Anatomy of a Rust Program\n\nLet’s review in detail what just happened in your “Hello, world!” program.\nHere’s the first piece of the puzzle:\n\n```rust\nfn main() {\n\n}\n```\n\nThese lines define a function in Rust. The `main` function is special: it is\nalways the first code that runs in every executable Rust program. The first\nline declares a function named `main` that has no parameters and returns\nnothing. If there were parameters, they would go inside the parentheses, `()`.\n\nAlso, note that the function body is wrapped in curly brackets, `{}`. Rust\nrequires these around all function bodies. It’s good style to place the opening\ncurly bracket on the same line as the function declaration, adding one space in\nbetween.\n\nIf you want to stick to a standard style across Rust projects, you can use an\nautomatic formatter tool called `rustfmt` to format your code in a particular\nstyle. The Rust team has included this tool with the standard Rust distribution,\nlike `rustc`, so it should already be installed on your computer! Check the\nonline documentation for more details.\n\nInside the `main` function is the following code:\n\n```rust\n    println!(\"Hello, world!\");\n```\n\nThis line does all the work in this little program: it prints text to the\nscreen. There are four important details to notice here.\n\nFirst, Rust style is to indent with four spaces, not a tab.\n\nSecond, `println!` calls a Rust macro. If it called a function instead, it\nwould be entered as `println` (without the `!`). We’ll discuss Rust macros in\nmore detail in Chapter 19. For now, you just need to know that using a `!`\nmeans that you’re calling a macro instead of a normal function, and that macros\ndon’t always follow the same rules as functions.\n\nThird, you see the `\"Hello, world!\"` string. We pass this string as an argument\nto `println!`, and the string is printed to the screen.\n\nFourth, we end the line with a semicolon (`;`), which indicates that this\nexpression is over and the next one is ready to begin. Most lines of Rust code\nend with a semicolon.\n\n### Compiling and Running Are Separate Steps\n\nYou’ve just run a newly created program, so let’s examine each step in the\nprocess.\n\nBefore running a Rust program, you must compile it using the Rust compiler by\nentering the `rustc` command and passing it the name of your source file, like\nthis:\n\n```console\n$ rustc main.rs\n```\n\nIf you have a C or C++ background, you’ll notice that this is similar to `gcc`\nor `clang`. After compiling successfully, Rust outputs a binary executable.\n\nOn Linux, macOS, and PowerShell on Windows, you can see the executable by\nentering the `ls` command in your shell. On Linux and macOS, you’ll see two\nfiles. With PowerShell on Windows, you’ll see the same three files that you\nwould see using CMD.\n\n```console\n$ ls\nmain  main.rs\n```\n\nWith CMD on Windows, you would enter the following:\n\n```cmd\n> dir /B %= the /B option says to only show the file names =%\nmain.exe\nmain.pdb\nmain.rs\n```\n\nThis shows the source code file with the *.rs* extension, the executable file\n(*main.exe* on Windows, but *main* on all other platforms), and, when using\nWindows, a file containing debugging information with the *.pdb* extension.\nFrom here, you run the *main* or *main.exe* file, like this:\n\n```console\n$ ./main # or .\\main.exe on Windows\n```\n\nIf *main.rs* was your “Hello, world!” program, this line would print `Hello,\nworld!` to your terminal.\n\nIf you’re more familiar with a dynamic language, such as Ruby, Python, or\nJavaScript, you might not be used to compiling and running a program as\nseparate steps. Rust is an *ahead-of-time compiled* language, meaning you can\ncompile a program and give the executable to someone else, and they can run it\neven without having Rust installed. If you give someone a *.rb*, *.py*, or\n*.js* file, they need to have a Ruby, Python, or JavaScript implementation\ninstalled (respectively). But in those languages, you only need one command to\ncompile and run your program. Everything is a trade-off in language design.\n\nJust compiling with `rustc` is fine for simple programs, but as your project\ngrows, you’ll want to manage all the options and make it easy to share your\ncode. Next, we’ll introduce you to the Cargo tool, which will help you write\nreal-world Rust programs.\n\n[troubleshooting]: ch01-01-installation.html#troubleshooting",
@@ -68,7 +80,7 @@
   }
 }
     </script>
-    <script type="ftd" id="ftd-external-children">
+    <script type="ftd" id="ftd-external-children-main">
         {
   "main-container-external:0": [
     {
@@ -80,6 +92,7 @@
   ]
 }
     </script>
+
     <script>
         // all ftd_utils are meant to be pure functions only: they can only depend on the
 // input passed, not on closures or global data etc
@@ -555,6 +568,7 @@ window.ftd = (function () {
 })();
 
     </script>
+
     <style>
         body {
             margin: 0;
@@ -684,12 +698,18 @@ window.ftd = (function () {
             margin: 0;
         }
 
-        </style>
+    </style>
 
 </head>
-    <body>
+<body>
 
-        <div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-row:0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: sticky; top: 0px; white-space: initial; width: 300px" class="ft_md"><div data-id="0,0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,0:main" href="index.html" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">The Rust Programming Language</a></div>
+<div id="message"><div data-id="message:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:message" data-spacing="margin-left:10px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-left: auto; margin-top: auto; white-space: initial" class="ft_md"><div data-id="0,0:message" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Other available languages:</div>
+<a data-id="0,1:message" href="https://fifthtry.github.io/rust-book-hi/ch01-02-hello-world/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; font-weight: 400; margin-left: 10px; text-align: left; white-space: initial" class="ft_md">hi</a></div></div><style>
+@font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
+font-style: light;;
+src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
+font-family: Open Sans }</style></div>
+<div id="main"><div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-row:0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: sticky; top: 0px; white-space: initial; width: 300px" class="ft_md"><div data-id="0,0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,0:main" href="index.html" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">The Rust Programming Language</a></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,1,0:main" href="foreword/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Foreword</a></div>
 <div data-id="0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,2,0:main" href="ch00-00-introduction/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Introduction</a></div>
 <div data-id="0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,0:main" href="ch01-00-getting-started/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Getting Started</a>
@@ -839,15 +859,19 @@ real-world Rust programs.</p>
 @font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
 font-style: light;;
 src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
-font-family: Open Sans }</style>
+font-family: Open Sans }</style></div>
 
-
-    <script>
-        window.ftd.init(
-            "main",
-            JSON.parse(document.getElementById("ftd-data").innerText),
-            JSON.parse(document.getElementById("ftd-external-children").innerText)
-        );
-    </script>
-    </body>
+<script>
+    window.ftd.init(
+        "message",
+        JSON.parse(document.getElementById("ftd-data-message").innerText),
+        JSON.parse(document.getElementById("ftd-external-children-message").innerText)
+    );
+    window.ftd.init(
+        "main",
+        JSON.parse(document.getElementById("ftd-data-main").innerText),
+        JSON.parse(document.getElementById("ftd-external-children-main").innerText)
+    );
+</script>
+</body>
 </html>
