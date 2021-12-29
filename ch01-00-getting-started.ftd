@@ -1,9 +1,9 @@
 
--- article.page:
+-- ft.page:
 
--- article.h1:  Getting Started
+-- ft.h1:  Getting Started
 
--- article.markdown:
+-- ft.markdown:
 
 Let’s start your Rust journey! There’s a lot to learn, but every journey starts
 somewhere. In this chapter, we’ll discuss:
