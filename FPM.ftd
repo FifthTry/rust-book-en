@@ -1,7 +1,7 @@
 -- import: fpm
 
--- fpm.package: fifthtry.github.io/welcome-fpm-book/
-zip: github.com/fifthtry/welcome-fpm-book/archive/refs/heads/main.zip
+-- fpm.package: fifthtry.github.io/rust-book-en/
+zip: github.com/fifthtry/rust-book-en/archive/refs/heads/main.zip
 
 -- fpm.dependency: fifthtry.github.io/Flash-theme
 
