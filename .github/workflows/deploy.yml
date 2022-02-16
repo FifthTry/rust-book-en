@@ -25,20 +25,11 @@ jobs:
         continue-on-error: false
         run: |
           echo "Using '$CI_REPOSITORY_NAME/' as the base while building"
-          fpm build --base=/$CI_REPOSITORY_NAME/
+          cd src && fpm build --base=/$CI_REPOSITORY_NAME/
       - uses: actions/upload-artifact@master
         with:
           name: GH_PAGES_BUILD
-          path: .build/
-      - name: build for tld
-        id: build_tld
-        run: |
-          rm -rf .build
-          fpm build --base=/
-      - uses: actions/upload-artifact@master
-        with:
-          name: TLD_BUILD
-          path: .build/
+          path: src/.build/
   deploy-gh-pages:
     runs-on: ubuntu-latest
     needs: build
