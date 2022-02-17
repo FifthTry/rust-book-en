@@ -61,7 +61,8 @@ $processor$: toc
 
 - Generic Types, Traits, and Lifetimes: ch10-00-generics/
   - Generic Data Types: ch10-01-syntax/
-  - Traits: Defining Shared Behavior: ch10-02-traits/
+  - Traits: Defining Shared Behavior
+    url: ch10-02-traits/
   - Validating References with Lifetimes: ch10-03-lifetime-syntax/
 
 - Writing Automated Tests: ch11-00-testing/
@@ -69,7 +70,8 @@ $processor$: toc
   - Controlling How Tests Are Run: ch11-02-running-tests/
   - Test Organization: ch11-03-test-organization/
 
-- An I/O Project: Building a Command Line Program: ch12-00-an-io-project/
+- An I/O Project: Building a Command Line Program
+  url: ch12-00-an-io-project/
   - Accepting Command Line Arguments: ch12-01-accepting-command-line-arguments/
   - Reading a File: ch12-02-reading-a-file/
   - Refactoring to Improve Modularity and Error Handling: ch12-03-improving-error-handling-and-modularity/
@@ -79,11 +81,14 @@ $processor$: toc
 
 # Thinking in Rust
 
-- Functional Language Features: Iterators and Closures: ch13-00-functional-features/
-  - Closures: Anonymous Functions that Can Capture Their Environment: ch13-01-closures/
+- Functional Language Features: Iterators and Closures
+  url: ch13-00-functional-features/
+  - Closures: Anonymous Functions that Can Capture Their Environment
+    url: ch13-01-closures/
   - Processing a Series of Items with Iterators: ch13-02-iterators/
   - Improving Our I/O Project: ch13-03-improving-our-io-project/
-  - Comparing Performance: Loops vs. Iterators: ch13-04-performance/
+  - Comparing Performance: Loops vs. Iterators:
+    url: ch13-04-performance/
 
 - More about Cargo and Crates.io: ch14-00-more-about-cargo/
   - Customizing Builds with Release Profiles: ch14-01-release-profiles/
@@ -115,7 +120,8 @@ $processor$: toc
 
 - Patterns and Matching: ch18-00-patterns/
   - All the Places Patterns Can Be Used: ch18-01-all-the-places-for-patterns/
-  - Refutability: Whether a Pattern Might Fail to Match: ch18-02-refutability/
+  - Refutability: Whether a Pattern Might Fail to Match
+    url: ch18-02-refutability/
   - Pattern Syntax: ch18-03-pattern-syntax/
 
 - Advanced Features: ch19-00-advanced-features/
@@ -125,7 +131,8 @@ $processor$: toc
   - Advanced Functions and Closures: ch19-05-advanced-functions-and-closures/
   - Macros: ch19-06-macros/
 
-- Final Project: Building a Multithreaded Web Server: ch20-00-final-project-a-web-server/
+- Final Project: Building a Multithreaded Web Server
+  url: ch20-00-final-project-a-web-server/
   - Building a Single-Threaded Web Server: ch20-01-single-threaded/
   - Turning Our Single-Threaded Server into a Multithreaded Server: ch20-02-multithreaded/
   - Graceful Shutdown and Cleanup: ch20-03-graceful-shutdown-and-cleanup/

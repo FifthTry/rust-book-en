@@ -4,7 +4,8 @@
 
 -- fpm.package: fifthtry.github.io/rust-book-en/
 zip: github.com/fifthtry/rust-book-en/archive/refs/heads/main.zip
-language: en
+language: 🇬🇧English
+translation: fifthtry.github.io/rust-book-pt-br
 
 -- fpm.dependency: fifthtry.github.io/Forest-Theme as ft
 
