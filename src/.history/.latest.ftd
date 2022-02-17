@@ -1,0 +1,370 @@
+-- import: fpm
+
+-- fpm.snapshot: FPM.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-00.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-01-keywords.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-02-operators.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-03-derivable-traits.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-04-useful-development-tools.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-05-editions.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-06-translation.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: appendix-07-nightly-rust.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch00-00-introduction.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch01-00-getting-started.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch01-01-installation.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch01-02-hello-world.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch01-03-hello-cargo.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch02-00-guessing-game-tutorial.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch03-00-common-programming-concepts.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch03-01-variables-and-mutability.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch03-02-data-types.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch03-03-how-functions-work.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch03-04-comments.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch03-05-control-flow.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch04-00-understanding-ownership.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch04-01-what-is-ownership.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch04-02-references-and-borrowing.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch04-03-slices.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch05-00-structs.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch05-01-defining-structs.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch05-02-example-structs.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch05-03-method-syntax.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch06-00-enums.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch06-01-defining-an-enum.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch06-02-match.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch06-03-if-let.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch07-00-managing-growing-projects-with-packages-crates-and-modules.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch07-01-packages-and-crates.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch07-02-defining-modules-to-control-scope-and-privacy.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch07-04-bringing-paths-into-scope-with-the-use-keyword.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch07-05-separating-modules-into-different-files.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch08-00-common-collections.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch08-01-vectors.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch08-02-strings.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch08-03-hash-maps.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch09-00-error-handling.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch09-01-unrecoverable-errors-with-panic.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch09-02-recoverable-errors-with-result.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch09-03-to-panic-or-not-to-panic.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch10-00-generics.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch10-01-syntax.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch10-02-traits.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch10-03-lifetime-syntax.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch11-00-testing.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch11-01-writing-tests.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch11-02-running-tests.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch11-03-test-organization.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch12-00-an-io-project.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch12-01-accepting-command-line-arguments.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch12-02-reading-a-file.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch12-03-improving-error-handling-and-modularity.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch12-04-testing-the-librarys-functionality.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch12-05-working-with-environment-variables.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch12-06-writing-to-stderr-instead-of-stdout.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch13-00-functional-features.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch13-01-closures.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch13-02-iterators.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch13-03-improving-our-io-project.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch13-04-performance.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch14-00-more-about-cargo.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch14-01-release-profiles.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch14-02-publishing-to-crates-io.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch14-03-cargo-workspaces.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch14-04-installing-binaries.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch14-05-extending-cargo.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch15-00-smart-pointers.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch15-01-box.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch15-02-deref.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch15-03-drop.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch15-04-rc.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch15-05-interior-mutability.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch15-06-reference-cycles.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch16-00-concurrency.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch16-01-threads.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch16-02-message-passing.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch16-03-shared-state.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch16-04-extensible-concurrency-sync-and-send.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch17-00-oop.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch17-01-what-is-oo.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch17-02-trait-objects.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch17-03-oo-design-patterns.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch18-00-patterns.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch18-01-all-the-places-for-patterns.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch18-02-refutability.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch18-03-pattern-syntax.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch19-00-advanced-features.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch19-01-unsafe-rust.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch19-03-advanced-traits.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch19-04-advanced-types.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch19-05-advanced-functions-and-closures.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch19-06-macros.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch20-00-final-project-a-web-server.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch20-01-single-threaded.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch20-02-multithreaded.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: ch20-03-graceful-shutdown-and-cleanup.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: foreword.ftd
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/ferris/does_not_compile.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/ferris/not_desired_behavior.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/ferris/panics.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl04-01.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl04-02.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl04-03.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl04-04.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl04-05.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl04-06.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl14-01.png
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl14-02.png
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl14-03.png
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl14-04.png
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl15-01.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl15-02.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl15-03.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl15-04.svg
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: img/trpl20-01.png
+timestamp: 1645090114531446000
+
+-- fpm.snapshot: index.ftd
+timestamp: 1645090114531446000
