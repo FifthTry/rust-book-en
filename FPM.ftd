@@ -6,6 +6,7 @@
 zip: github.com/fifthtry/rust-book-en/archive/refs/heads/main.zip
 language: 🇬🇧English
 translation: fifthtry.github.io/rust-book-pt-br
+translation: fifthtry.github.io/rust-book-ko
 
 -- fpm.dependency: fifthtry.github.io/Forest-Theme as ft
 
