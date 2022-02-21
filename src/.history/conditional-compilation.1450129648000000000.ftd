@@ -1,0 +1,131 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Conditional Compilation
+
+
+Rust has a special attribute, `#[cfg]`, which allows you to compile code
+based on a flag passed to the compiler. It has two forms:
+
+-- ft.code:
+lang: rust
+
+#[cfg(foo)]
+# fn foo() {}
+
+#[cfg(bar = "baz")]
+# fn bar() {}
+
+
+-- ft.markdown:
+
+They also have some helpers:
+
+-- ft.code:
+lang: rust
+
+#[cfg(any(unix, windows))]
+# fn foo() {}
+
+#[cfg(all(unix, target_pointer_width = "32"))]
+# fn bar() {}
+
+#[cfg(not(foo))]
+# fn not_foo() {}
+
+
+-- ft.markdown:
+
+These can nest arbitrarily:
+
+-- ft.code:
+lang: rust
+
+#[cfg(any(not(unix), all(target_os="macos", target_arch = "powerpc")))]
+# fn foo() {}
+
+
+-- ft.markdown:
+
+As for how to enable or disable these switches, if you’re using Cargo,
+they get set in the [`(http://doc.crates.io/manifest.html#the-features-section)` section](http://doc.crates.io/manifest.html#the-features-section) of your `Cargo.toml`:
+
+
+
+-- ft.code:
+lang: toml
+
+(http://doc.crates.io/manifest.html#the-features-section)
+# no features by default
+default = []
+
+# The “secure-password” feature depends on the bcrypt package.
+secure-password = ["bcrypt"]
+
+
+-- ft.markdown:
+
+When you do this, Cargo passes along a flag to `rustc`:
+
+-- ft.code:
+lang: text
+
+--cfg feature="${feature_name}"
+
+
+-- ft.markdown:
+
+The sum of these `cfg` flags will determine which ones get activated, and
+therefore, which code gets compiled. Let’s take this code:
+
+-- ft.code:
+lang: rust
+
+#[cfg(feature = "foo")]
+mod foo {
+}
+
+
+-- ft.markdown:
+
+If we compile it with `cargo build --features "foo"`, it will send the `--cfg
+feature="foo"` flag to `rustc`, and the output will have the `mod foo` in it.
+If we compile it with a regular `cargo build`, no extra flags get passed on,
+and so, no `foo` module will exist.
+
+-- ft.h1: cfg_attr
+
+
+You can also set another attribute based on a `cfg` variable with `cfg_attr`:
+
+-- ft.code:
+lang: rust
+
+#[cfg_attr(a, b)]
+# fn foo() {}
+
+
+-- ft.markdown:
+
+Will be the same as `#[b]` if `a` is set by `cfg` attribute, and nothing otherwise.
+
+-- ft.h1: cfg!
+
+
+The `cfg!` [syntax extension](compiler-plugins.html) lets you use these kinds of flags
+elsewhere in your code, too:
+
+-- ft.code:
+lang: rust
+
+if cfg!(target_os = "macos") || cfg!(target_os = "ios") {
+    println!("Think Different!");
+}
+
+
+
+
+-- ft.markdown:
+
+These will be replaced by a `true` or `false` at compile-time, depending on the
+configuration settings.

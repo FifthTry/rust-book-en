@@ -1,0 +1,23 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: `HashMap<K, V>`
+
+
+-- ft.h2: creating
+
+
+new, insert
+
+-- ft.h2: reading
+
+
+-- ft.h2: updating
+
+
+entry!
+
+-- ft.h2: implementaiton details
+
+
+still growable, but doesn't work like vec does

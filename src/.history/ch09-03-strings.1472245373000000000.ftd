@@ -1,0 +1,42 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Strings
+
+
+We've already talked about strings a bunch in chapter four, but let's take a
+more in-depth look at them now.
+
+-- ft.h2: Creating
+
+
+You can create an empty string with `new`:
+
+-- ft.code:
+lang: rust
+
+let s = String::new();
+
+
+-- ft.markdown:
+
+Often, you have some initial data that you'd like to start the string off with.
+For that, there's the `.to_string()` method:
+
+-- ft.code:
+lang: rust
+
+let data = "initial contents";
+
+let s = data.to_string();
+
+
+-- ft.h2: Reading
+
+
+slicing syntax, indexing
+
+-- ft.h2: Updating
+
+
+push_str, concatenation

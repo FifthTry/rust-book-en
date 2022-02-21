@@ -1,0 +1,17 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Advanced Lifetimes
+
+
+-- ft.h3: Lifetimes that depend on other lifetimes
+
+
+'a: 'b stuff: subtyping
+
+-- ft.h3: Higher ranked trait bounds
+
+
+for<'a>
+
+Needed for closures

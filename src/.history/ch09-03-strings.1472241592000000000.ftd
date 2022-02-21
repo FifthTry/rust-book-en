@@ -1,0 +1,25 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Strings
+
+
+We've already talked about strings a bunch in chapter four, but let's take a
+more in-depth look at them now.
+
+-- ft.h2: creating
+
+
+
+
+new,  String::from and .to_string()
+
+-- ft.h2: reading
+
+
+slicing syntax, indexing
+
+-- ft.h2: updating
+
+
+push_str, concatenation

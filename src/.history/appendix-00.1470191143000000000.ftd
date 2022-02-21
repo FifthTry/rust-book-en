@@ -1,0 +1,8 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Appendix
+
+
+The following sections contain reference material you may find useful in your
+Rust journey.

@@ -1,0 +1,41 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Unsafe Rust
+
+
+Things you may do in an unsafe block that you may not in safe rust
+
+- deref a raw pointer
+- call an unsafe fn
+- access or modify a static variable
+- impl an unsafe trait
+
+Go see other stuff
+
+Here's the syntax tho
+
+You know unsafe blocks are the cause of any crashes
+
+wrap all the unsafe, make it as small as possible, present a safe public API
+
+-- ft.h2: Raw Pointers
+
+
+-- ft.h2: Unsafe Functions
+
+
+-- ft.h3: `transmute`
+
+
+never ever. don't. stop.
+
+-- ft.h3: `extern fn`
+
+
+You have to write unsafe code to FFI
+
+-- ft.h2: `static`
+
+
+-- ft.h2: Unsafe Traits

@@ -1,0 +1,102 @@
+-- import: ft
+
+-- ft.toc:
+$processor$: toc
+
+# The Rust Programming Language
+
+- Introduction: /introduction/
+  - Installation: /installation/
+  - Hello, World!: /hello-world/
+  - The Design of Rust: /design/
+
+- Tutorial: /tutorial/
+
+- Primitive Rust: /primitive-rust/
+  - Variable Bindings: /variable-bindings/
+  - Functions: /functions/
+  - Scalar Types: /scalar-types/
+  - Compound Types: /compound-types/
+  - Comments: /comments/
+  - `if`: /if/
+  - Loops: /loops/
+
+- Ownership & borrowing: /ownership-and-borrowing/
+  - Ownership: /ownership/
+  - References & Borrowing: /references-and-borrowing/
+  - Lifetimes: /lifetimes/
+
+- Structs: /structs/
+  - Method Syntax: /method-syntax/
+  - Generics: /structs-generics/
+  - Advanced: /structs-advanced/
+
+- Enums: /enums/
+  - Match: /match/
+  - Patterns: /patterns/
+  - Option: /option/
+  - if let: /if-let/
+
+- Crates & Modules: /crates-and-modules/
+
+- Error Handling: /error-handling/
+
+- Basic Collections: /basic-collections/
+  - Vectors: /vectors/
+  - Strings: /strings/
+  - `HashMap<K, V>`: /hashmap/
+
+- Traits: /traits/
+
+- Closures: /closures/
+
+- Iterators: /iterators/
+
+- I/O: /io/
+  - `Read` & `Write`: /read-and-write/
+  - `std::fs`: /fs/
+  - `std::path`: /path/
+  - `std::env`: /env/
+
+- Testing: /testing/
+
+- Smart Pointers: /smart-pointers/
+  - `Deref`: /deref/
+  - `Deref` coercions: /deref-coercions/
+  - `Box<T>`: /box/
+  - `Rc<T>`: /rc/
+
+- Concurrency: /concurrency/
+  - Threads: /threads/
+  - `Send` & `Sync`: /send-and-sync/
+  - `Arc<T>`: /arc/
+  - `Mutex<T>`: /mutex/
+  - `Channels`: /channels/
+
+- Unsafe Rust: /unsafe-rust/
+  - Raw Pointers: /raw-pointers/
+  - transmute: /transmute/
+
+- FFI: /ffi/
+  - Conditional Compilation: /conditional-compilation/
+  - Bindings to C: /bindings-to-c/
+  - Using Rust from Other Languages: /using-rust-from-other-languages/
+  - `static`: /static/
+
+- Cargo: /cargo/
+  - Crates.io: /cratesio/
+
+- Advanced Type System Features: /advanced-type-system-features/
+  - Associated Types: /associated-types/
+  - Trait Objects: /trait-objects/
+  - UFCS: /ufcs/
+  - Coherence: /coherence/
+
+- Interior mutability: /interior-mutability/
+  - `Cell<T>`: /cell/
+  - `RefCell<T>`: /refcell/
+
+- Macros: /macros/
+
+- Nightly Rust: /nightly-rust/
+

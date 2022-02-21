@@ -1,0 +1,206 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Importing names with `use`
+
+
+We've seen how we can call functions defined within a module by using the
+module name as part of the call, like this:
+
+-- ft.code:
+lang: rust
+
+pub mod a {
+    pub mod series {
+        pub mod of {
+            pub fn namespaces() {}
+        }
+    }
+}
+
+fn main() {
+    a::series::of::namespaces();
+}
+
+
+-- ft.markdown:
+
+However, referring to the fully qualified name can get quite lengthy, as we see
+in that example. To solve this issue, Rust has a keyword, `use`. It works like
+this:
+
+-- ft.code:
+lang: rust
+
+pub mod a {
+    pub mod series {
+        pub mod of {
+            pub fn namespaces() {}
+        }
+    }
+}
+
+use a::series::of;
+
+fn main() {
+    of::namespaces();
+}
+
+
+-- ft.markdown:
+
+We can `use` a module, and that will bring its name into scope. This allows us
+to shorten our function call, only requiring us to type the final module name,
+not the entire chain of them. `use` is quite powerful and can bring all kinds
+of things into scope. For example, we could `use` the function itself:
+
+-- ft.code:
+lang: rust
+
+pub mod a {
+    pub mod series {
+        pub mod of {
+            pub fn namespaces() {}
+        }
+    }
+}
+
+use a::series::of::namespaces;
+
+fn main() {
+    namespaces();
+}
+
+
+-- ft.markdown:
+
+Enums also form this kind of namespace; we can import an enum's variants with
+`use` as well. For any kind of `use` statement, if you are importing multiple
+items from one namespace, you can list them using curly braces and commas in
+the last position, like so:
+
+-- ft.code:
+lang: rust
+
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
+use TrafficLight::{Red, Yellow};
+
+fn main() {
+    let red = Red;
+    let yellow = Yellow;
+    let green = TrafficLight::Green; // because we didn't use TrafficLight::Green
+}
+
+
+-- ft.h2: Glob imports with `*`
+
+
+If you'd like to import all the items in a namespace at once, you can use `*`:
+
+-- ft.code:
+lang: rust
+
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
+use TrafficLight::*;
+
+fn main() {
+    let red = Red;
+    let yellow = Yellow;
+    let green = Green;
+}
+
+
+-- ft.markdown:
+
+The `*` is called a 'glob', and it will import everything that's visible inside
+of the namespace. Globs should be used sparingly: they are convenient, but you
+might also pull in more things than you expected and cause naming conflicts.
+
+-- ft.markdown:
+
+For example, in this program, imagine that `TrafficLight` is actually coming
+from an external `traffic_light` crate we're depending on. We could also happen
+to define our own enum named `Blue` that looks like:
+
+-- ft.code:
+lang: rust
+
+enum Blue {
+    Cyan,
+    Navy,
+    Royal,
+}
+
+
+-- ft.markdown:
+
+If the traffic_light crate released a new major version and we decided to
+upgrade, the crate could have added `Blue` to its `TrafficLight` variants:
+
+-- ft.code:
+lang: rust
+
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+    Blue,
+}
+
+
+-- ft.markdown:
+
+Since we have imported all the names in `TrafficLight` using `*`, we would now
+have a name conflict in our code and just upgrading would cause our crate to no
+longer compile:
+
+-- ft.code:
+lang: bash
+
+src/main.rs:10:1: 14:2 error: a type named `Blue` has already been imported in this module [E0255]
+src/main.rs:10 enum Blue {
+               ^
+src/main.rs:8:5: 8:21 note: previous import of `Blue` here
+src/main.rs:8 use TrafficLight::*;
+                  ^~~~~~~~~~~~~~~~
+
+
+-- ft.markdown:
+
+If, instead, we were explicit about the variants we wanted to import, our code
+would not have stopped compiling when we upgraded the `traffic_light` crate.
+
+-- ft.h2: Re-exports with `pub use`
+
+
+Finally, you can combine the `pub` keyword with `use` to 're-export' something:
+
+-- ft.code:
+lang: rust
+
+mod a {
+    mod namespace {
+        pub fn function() {}
+    }
+}
+
+pub use a::namespace::function;
+
+
+-- ft.markdown:
+
+Here, the `a` and `namespace` modules are not public, so users of our library
+couldn't call `a::namespace` themselves. However, since we've `pub use`'d
+`function`, it will be public. Users can just call `function` themselves,
+directly. This allows us to organize our code internally however we'd like,
+while presenting a different external interface.

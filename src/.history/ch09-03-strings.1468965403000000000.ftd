@@ -1,0 +1,21 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Strings
+
+
+-- ft.h2: creating
+
+
+new, push_str, String::from and .to_string()
+
+-- ft.h2: reading
+
+
+-- ft.h2: updating
+
+
+-- ft.h2: implementaiton details
+
+
+just like vecs with extra utf8 checks

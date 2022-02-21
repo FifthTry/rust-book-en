@@ -1,0 +1,266 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Loops
+
+
+It’s often quite useful to be able to execute a block of code more than one
+time. For this, we have several constructs, called ‘loops’.
+
+To try out loops, let’s make a new project. Navigate to your projects folder
+and use Cargo to make a new one:
+
+-- ft.code:
+lang: bash
+
+\$ cargo new --bin loops
+\$ cd loops
+
+
+-- ft.markdown:
+
+There are three kinds of loops in Rust: `loop`, `while`, and `for`. Let’s dig
+in.
+
+-- ft.h2: `loop`
+
+
+The `loop` keyword is very straightforward: it executes a block of code over
+and over and over and over and over and over forever. Change your `src/main.rs`
+file to look like this:
+
+-- ft.code:
+lang: rust,ignore
+
+fn main() {
+    loop {
+        println!("again!");
+    }
+}
+
+
+-- ft.markdown:
+
+If we run this program, we’ll see ‘`again!`’ printed over and over again. So
+how does our program end? It doesn’t, until we kill it. Most terminals support
+a keyboard shortcut, ‘control-c’, to stop a runaway program. Give it a try:
+
+-- ft.code:
+lang: bash
+
+\$ cargo run
+   Compiling loops v0.1.0 (file:///projects/loops)
+     Running `target/debug/loops`
+again!
+again!
+again!
+again!
+^Cagain!
+
+
+-- ft.markdown:
+
+That `^C` there is where I hit control-c.
+
+-- ft.markdown:
+
+That’s a lot of trouble though! Luckily, there’s a way to break an infinite `loop`.
+
+-- ft.h3: Breaking out of a loop
+
+
+The `break` keyword will allow us to quit looping. Try this version out:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    loop {
+        println!("once!");
+        break;
+    }
+}
+
+
+-- ft.markdown:
+
+If you run this program with `cargo run`, you’ll see that it only executes one
+time:
+
+-- ft.code:
+lang: bash
+
+\$ cargo run
+   Compiling loops v0.1.0 (file:///projects/loops)
+     Running `target/debug/loops`
+once!
+
+
+-- ft.markdown:
+
+When a Rust program hits a `break` statement, it will exit the current loop.
+
+-- ft.h2: `while`
+
+
+What if we took `loop`, `break`, and `if`, and put them together? Something
+like this:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let mut number = 3;
+
+    loop {
+        if number != 0 {
+            println!("{}!", number);
+
+            number = number - 1;
+        } else {
+            break;
+        }
+
+    }
+
+    println!("LIFTOFF!!!");
+}
+
+
+-- ft.markdown:
+
+If we run this, we’ll get some output:
+
+-- ft.code:
+lang: bash
+
+   Compiling loops v0.1.0 (file:///projects/loops)
+     Running `target/debug/loops`
+3!
+2!
+1!
+LIFTOFF!!!
+
+
+-- ft.markdown:
+
+The core of this example is in the combination of these three constructs:
+
+-- ft.code:
+lang: rust,ignore
+
+    loop {
+        if number != 0 {
+            // do stuff
+        } else {
+            break;
+        }
+
+
+-- ft.markdown:
+
+We want to `loop`, but only while some sort of condition is true. As soon as it
+isn't, we want to `break` out of the loop.
+
+-- ft.markdown:
+
+This pattern is so common that we have a language construct for it: `while`.
+Here's the same example, but using `while` instead:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let mut number = 3;
+    while number != 0  {
+        println!("{}!", number);
+
+        number = number - 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+
+
+-- ft.markdown:
+
+This lets us get rid of a lot of nesting, and is more clear: while a condition holds,
+run this code.
+
+-- ft.h2: `for`
+
+
+We can use this `while` construct to loop over the elements of a collection, like an
+array:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("the value is is: {}", a[index]);
+
+        index = index + 1;
+    }
+}
+
+
+-- ft.markdown:
+
+Running this will print out every element of the array:
+
+-- ft.code:
+lang: bash
+
+\$ cargo run
+   Compiling loops v0.1.0 (file:///projects/loops)
+     Running `target/debug/loops`
+the value is: 1
+the value is: 2
+the value is: 3
+the value is: 4
+the value is: 5
+
+
+-- ft.markdown:
+
+Here, we're counting up instead of down: we start at zero, then loop until we
+hit the final index of our array.
+
+-- ft.markdown:
+
+This approach is error-prone, though. If we get the index length incorrect, we
+will end up causing a `panic!`. This is also slow, as the compiler needs to do
+that check on every element on every iteration through the loop.
+
+-- ft.markdown:
+
+Instead, we can use our last kind of loop: the `for` loop. It looks like this:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+    let mut index = 0;
+    
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+}
+
+
+-- ft.markdown:
+
+** NOTE: see [https://github.com/rust-lang/rust/issues/25725#issuecomment-166365658](https://github.com/rust-lang/rust/issues/25725#issuecomment-166365658), we may want to change this **
+
+-- ft.markdown:
+
+If we run this, we'll see the same output as the previous example. 
+
+-- ft.markdown:
+
+** I'm going to leave it at this for now until we decide how we want to do it**

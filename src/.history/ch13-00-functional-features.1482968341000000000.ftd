@@ -1,0 +1,53 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Functional Language features in Rust - Iterators and Closures
+
+
+-- ft.h2: Closures
+
+
+-- ft.h3: What is a closure
+
+
+How are they diff from fns
+
+-- ft.h3: `Fn` traits
+
+
+-- ft.h2: Iterators
+
+
+-- ft.h3: Iterator & for loop
+
+
+.into_iter()
+
+-- ft.h3: Iterators are Lazy
+
+
+Difference between adapter and consumer - another iterator or consuming?
+
+-- ft.h3: Implementing the Iterator trait
+
+
+Talk about using Associated Types here, foreshadow to advanced type systems
+chapter about why this is a different thing than normal
+
+-- ft.h2: ??? How does this improve the I/O project from Chapter 12
+
+
+Does this get woven into the above sections?
+
+-- ft.h2: Summary: Performance
+
+
+-- ft.h3: Iterators compile down to ASM == for loop
+
+
+Most complicated chain of iterator functions that compile down to the same ASM as a for loop
+
+-- ft.h3: Representation: Closures are a Struct
+
+
+Closures don't have any further performance penalty over regular fn calls

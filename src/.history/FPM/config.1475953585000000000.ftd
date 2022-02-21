@@ -1,0 +1,125 @@
+-- import: ft
+
+-- ft.toc:
+$processor$: toc
+
+# The Rust Programming Language
+
+# Introduction
+
+- Introduction: /ch01-00-introduction/
+  - Installation: /ch01-01-installation/
+  - Hello, World!: /ch01-02-hello-world/
+
+- Guessing Game Tutorial: /ch02-00-guessing-game-tutorial/
+
+- Common Programming Concepts in Rust: /ch03-00-common-programming-concepts-in-rust/
+  - Variables and Mutability: /ch03-01-variables-and-mutability/
+  - Data Types: /ch03-02-data-types/
+  - How Functions Work: /ch03-03-how-functions-work/
+  - Comments: /ch03-04-comments/
+  - Control Flow: /ch03-05-control-flow/
+
+- Understanding Ownership: /ch04-00-understanding-ownership/
+  - Ownership: /ch04-01-ownership/
+  - References & Borrowing: /ch04-02-references-and-borrowing/
+  - Slices: /ch04-03-slices/
+
+- Structs: /ch05-00-structs/
+  - Method Syntax: /ch05-01-method-syntax/
+
+- Enums: /ch06-00-enums/
+  - Option: /ch06-01-option/
+  - Match: /ch06-02-match/
+  - `if let`: /ch06-03-if-let/
+
+# Get you going
+
+- Modules: /ch07-00-modules/
+  - `mod` and the Filesystem: /ch07-01-mod-and-the-filesystem/
+  - Controlling Visibility with `pub`: /ch07-02-controlling-visibility-with-pub/
+  - Importing Names with `use`: /ch07-03-importing-names-with-use/
+
+- Fundamental Collections: /ch08-00-fundamental-collections/
+  - Vectors: /ch08-01-vectors/
+  - Strings: /ch08-02-strings/
+  - Hash Maps: /ch08-03-hash-maps/
+
+- Error Handling: /
+
+- Generics: /
+
+- I/O: /
+  - `Read` & `Write`: /
+  - `std::fs`: /
+  - `std::path`: /
+  - `std::env`: /
+
+- Patterns: /chXX-patterns/
+
+- Testing: /
+
+- Debugging: /
+
+# Thinking in Rust
+
+- Composition: /
+
+- Closures: /
+
+- Zero-cost Abstractions: /
+  - Iterators as a Case Study: /
+
+- Creating a Library: /
+  - Cargo: /
+  - Crates.io: /
+  - Organizing your Public API: /chYY-YY-public-api/
+  - Documentation: /chYY-YY-documentation/
+  - Workspaces and Multiple Related Crates: /chYY-YY-workspaces/
+
+- Smart Pointers: /
+  - `Deref`: /
+  - `Deref` Coercions: /
+  - `Box<T>`: /
+  - `Rc<T>`: /
+
+- Concurrency: /
+  - Threads: /
+  - `Send` & `Sync`: /
+  - `Arc<T>`: /
+  - `Mutex<T>`: /
+  - `Channels`: /
+
+# Advanced Topics
+
+- More Lifetimes: /
+
+- Unsafe Rust: /
+  - Raw Pointers: /
+  - `transmute`: /
+
+- FFI: /
+  - Conditional Compilation: /
+  - Bindings to C: /
+  - Using Rust from Other Languages: /
+  - `static`: /
+
+- Advanced Type System Features: /
+  - Associated Types: /
+  - Trait Objects: /
+  - UFCS: /
+  - Coherence: /
+
+- Interior Mutability: /
+  - `Cell<T>`: /
+  - `RefCell<T>`: /
+
+- Macros: /
+
+- Nightly Rust: /
+
+- Appendix: /appendix-00/
+  - Keywords: /appendix-01-keywords/
+  - Operators: /appendix-02-operators/
+  - Derivable Traits: /appendix-03-derivable-traits/
+

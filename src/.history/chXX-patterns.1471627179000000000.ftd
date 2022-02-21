@@ -1,0 +1,440 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Patterns
+
+
+We've actually used patterns a few times so far: they're used in `let`
+bindings, in function arguments, and in the `match` expression. Patterns have a
+lot more abilities than we have demonstrated so far, so we'll cover some of the most commonly used ones in this section. Any of these abilities work in
+any place where a pattern is used.
+
+-- ft.h2: `let` statements
+
+
+A basic `let` statement has this form:
+
+-- ft.code:
+lang: text
+
+let PATTERN = EXPRESSION;
+
+
+-- ft.markdown:
+
+We've seen bindings that have names in the `PATTERN` slot: a name is just a
+particularly humble form of pattern.
+
+-- ft.h2: Multiple bindings
+
+
+Let’s try a more complex pattern. Change our example program to this:
+
+Filename: src/main.rs
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let (x, y) = (5, 6);
+
+    println!("The value of x is: {}", x);
+    println!("The value of y is: {}", y);
+}
+
+
+-- ft.markdown:
+
+And run it with `cargo run`:
+
+-- ft.code:
+lang: text
+
+\$ cargo run
+   Compiling bindings v0.1.0 (file:///projects/bindings)
+     Running `target/debug/bindings`
+The value of x is: 5
+The value of y is: 6
+
+
+-- ft.markdown:
+
+We’ve created two bindings with one `let`! Here’s our pattern:
+
+-- ft.code:
+lang: text
+
+(x, y)
+
+
+-- ft.markdown:
+
+And here’s the value:
+
+-- ft.code:
+lang: text
+
+(5, 6)
+
+
+-- ft.markdown:
+
+As you can see, the two line up visually, and so `let` binds `5` to `x` and `6`
+to `y`. We could have used two `let` statements as well:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let x = 5;
+    let y = 6;
+}
+
+
+-- ft.markdown:
+
+In simple cases like this, two `let`s may be clearer, but in others, creating
+multiple bindings at once is nice. As we become more proficient in Rust, we’ll
+figure out which style is better, but it’s mostly a judgement call.
+
+-- ft.h2: Type annotations
+
+
+Most of the time, Rust uses *type inference*, meaning that it attempts to infer
+the types of your bindings rather than you having to declare them explicitly
+even though Rust is a statically typed language. Occasionally, Rust won't have
+enough information to infer the type of your value, and you will need to add a
+type annotation in with the pattern.
+
+Here’s what a `let` statement with a *type annotation* looks like:
+
+-- ft.code:
+lang: rust
+
+let x: i32 = 5;
+
+
+-- ft.markdown:
+
+We can add a colon, followed by the type name. Here’s the structure of a `let`
+statement with a type annotation:
+
+-- ft.code:
+lang: text
+
+let PATTERN: TYPE = VALUE;
+
+
+-- ft.markdown:
+
+Note that the colon and the `TYPE` go _after_ the `PATTERN`, not in the pattern
+itself. As an example, here’s our more complex pattern with two bindings:
+
+-- ft.code:
+lang: rust
+
+let (x, y): (i32, i32) = (5, 6);
+
+
+-- ft.markdown:
+
+Just like we match up the `VALUE` with the `PATTERN`, we match up the `TYPE`
+with the `PATTERN`.
+
+-- ft.h2: Literals & _
+
+
+You can match against literals directly, and `_` acts as an any case:
+
+-- ft.code:
+lang: rust
+
+let x = 1;
+
+match x {
+    1 => println!("one"),
+    2 => println!("two"),
+    3 => println!("three"),
+    _ => println!("anything"),
+}
+
+
+-- ft.markdown:
+
+This prints `one`.
+
+-- ft.h1: Multiple patterns
+
+
+You can match multiple patterns with `|`:
+
+-- ft.code:
+lang: rust
+
+let x = 1;
+
+match x {
+    1 | 2 => println!("one or two"),
+    3 => println!("three"),
+    _ => println!("anything"),
+}
+
+
+-- ft.markdown:
+
+This prints `one or two`.
+
+-- ft.h2: ref and ref mut
+
+
+Usually, when you match against a pattern, bindings are bound by value.
+This means you'll end up moving the value out:
+
+-- ft.code:
+lang: rust,ignore
+
+let name = Some(String::from("Bors"));
+
+match name {
+    Some(name) => println!("Found a name: {}", name),
+    None => (),
+}
+
+\// name is moved here. This line will fail to compile:
+println!("name is: {:?}", name);
+
+
+-- ft.markdown:
+
+If you'd prefer to bind `name` by reference, use the `ref` keyword:
+
+-- ft.code:
+lang: rust
+
+let name = Some(String::from("Bors"));
+
+match name {
+    Some(ref name) => println!("Found a name: {}", name),
+    None => (),
+}
+
+\// name is not moved here; the match only took a reference to its data rather
+\// than moving it. This will work:
+println!("name is: {:?}", name);
+
+
+-- ft.markdown:
+
+And for a mutable reference, `ref mut`:
+
+-- ft.code:
+lang: rust
+
+let mut name = Some(String::from("Bors"));
+
+match name {
+    Some(ref mut name) => *name = String::from("Another name"),
+    None => (),
+}
+
+\// name is not moved here; the match only took a reference to its data rather
+\// than moving it
+
+
+-- ft.h2: Destructuring
+
+
+Patterns can be used to destructure structs and enums:
+
+-- ft.code:
+lang: rust
+
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+let origin = Point { x: 0, y: 0 };
+
+let Point { x, y } = origin;
+
+
+-- ft.markdown:
+
+This brings an `x` and `y` binding into scope, matching the `x` and `y` of
+`origin`. While it can be unusual in `let`, this is the same principle of
+patterns in `match`:
+
+-- ft.code:
+lang: rust
+
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+let origin = Point { x: 0, y: 0 };
+
+match origin {
+    Point { x, y } => { }, // x and y are bound here
+}
+
+
+-- ft.h2: Shadowing
+
+
+As with all bindings, anything bound by a pattern will shadow bindings
+outside of the binding construct:
+
+-- ft.code:
+lang: rust
+
+let x = Some(5);
+
+match x {
+    Some(x) => { }, // x is an i32 here, not an Option<i32>
+    None => (),
+}
+
+
+-- ft.h2: Ignoring bindings
+
+
+We discussed using `_` as a whole pattern to ignore it above, but you can
+also use `_` inside of another pattern to ignore just part of it:
+
+-- ft.code:
+lang: rust
+
+let x = Some(5);
+
+match x {
+    Some(_) => println!("got a Some and I don't care what's inside"),
+    None => (),
+}
+
+
+-- ft.markdown:
+
+Or like this:
+
+-- ft.code:
+lang: rust
+
+let numbers = (2, 4, 8, 16, 32);
+
+match numbers {
+    (first, _, third, _, fifth) => println!("Some numbers: {}, {}, {}", first, third, fifth),
+}
+
+
+-- ft.markdown:
+
+If you want, you can use `..` to ignore all of the parts you haven't defined:
+
+-- ft.code:
+lang: rust
+
+struct Point {
+    x: i32,
+    y: i32,
+    z: i32,
+}
+
+let origin = Point { x: 0, y: 0, z: 0 };
+
+match origin {
+    Point { x, .. } => { }, // y and z are ignored
+}
+
+
+-- ft.h2: Ranges
+
+
+You can match a range of values with `...`:
+
+-- ft.code:
+lang: rust
+
+let x = 5;
+
+match x {
+    1 ... 5 => println!("one through five"),
+    _ => println!("something else"),
+}
+
+
+-- ft.markdown:
+
+Ranges are usually used with integers or `char`s:
+
+-- ft.code:
+lang: rust
+
+let x = 'c';
+
+match x {
+    'a' ... 'j' => println!("early ASCII letter"),
+    'k' ... 'z' => println!("late ASCII letter"),
+    _ => println!("something else"),
+}
+
+
+-- ft.h2: Guards
+
+
+You can introduce match guards with `if`:
+
+-- ft.code:
+lang: rust
+
+let x = Some(5);
+
+match x {
+    Some(x) if x < 5 => println!("less than five: {}", x),
+    Some(x) => println!("{}", x),
+    None => (),
+}
+
+
+-- ft.markdown:
+
+If youre using if with multiple patterns, the if applies to both sides:
+
+-- ft.code:
+lang: rust
+
+let x = 4;
+let y = false;
+
+match x {
+    4 | 5 if y => println!("yes"),
+    _ => println!("no"),
+}
+
+
+-- ft.markdown:
+
+This prints `no`, because the if applies to the whole of `4 | 5`, and not to only
+the `5`. In other words, the precedence of if behaves like this:
+
+-- ft.code:
+lang: text
+
+(4 | 5) if y => ...
+
+
+-- ft.markdown:
+
+not this:
+
+-- ft.code:
+lang: text
+
+4 | (5 if y) => ...
+
+
+-- ft.h2: Bindings
+
+
+You can bind values to names with `@`:

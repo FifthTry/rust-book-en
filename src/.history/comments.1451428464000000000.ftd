@@ -1,0 +1,111 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Comments
+
+
+We strive to make our programs easy to understand, but sometimes, some extra
+explanation is warranted. We can leave notes in our source code that the
+compiler will ignore. These notes are called ‘comments’.
+
+Here’s a comment:
+
+-- ft.code:
+lang: rust
+
+\// Hello, world.
+
+
+-- ft.markdown:
+
+Comments start with two slashes, and last until the end of the line. Larger
+comments will need more lines:
+
+-- ft.code:
+lang: rust
+
+\// So we’re doing something complicated here, long enough that we need
+\// multiple lines of comments to do it! Whew! Hopefully, this comment will
+\// explain what’s going on.
+
+
+-- ft.markdown:
+
+Comments can also go at the end of lines:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let lucky_number = 7; // I’m feeling lucky today.
+}
+
+
+-- ft.markdown:
+
+But you’ll more often see them above:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    // I’m feeling lucky today.
+    let lucky_number = 7;
+}
+
+
+-- ft.markdown:
+
+That’s all there is to it. Comments are not particularly complicated.
+
+-- ft.h2: Documentation comments
+
+
+However, Rust has another kind of comment: a documentation comment. These
+comments don’t affect the way that the code works, but they do work with Rust’s
+tools. More specifically, the `rustdoc` tool that comes with Rust reads
+documentation comments and produces HTML documentation from them.
+
+Documentation comments use an extra slash:
+
+-- ft.code:
+lang: rust
+
+\/// The foo function doesn’t really do much.
+fn foo() {
+}
+
+\/// We also can use
+\/// multiple comments here too,
+\/// like we did before
+fn bar() {
+}
+
+
+-- ft.markdown:
+
+This comment would then be interpreted by `rustdoc` as documenting the thing
+that follows it: `foo()` and `bar()`.
+
+-- ft.markdown:
+
+Because documentation comments have semantic meaning to `rustdoc`, the compiler
+will pay attention to the placement of your documentation comments. For
+example, a program with only this:
+
+-- ft.code:
+lang: rust,ignore
+
+\/// What am I documenting?
+
+
+-- ft.markdown:
+
+Will give a compiler error:
+
+-- ft.code:
+lang: text
+
+src/main.rs:1:1: 1:27 error: expected item after doc comment
+src/main.rs:1 /// What am I documenting?
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~

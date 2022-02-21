@@ -1,0 +1,259 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h2: Anatomy of a Rust Program
+
+
+The foundation of virtually every program is the ability to store and modify
+data, but to create this data, you first have to create a program. Here, we'll
+write some code that demonstrates how to begin a Rust program, how to bind a
+variable, and how to print text to the terminal.
+
+PROD: START BOX
+
+Keep in mind that the Rust language has a set of *keywords* that have
+been reserved for use by the language only. This means you cannot use these
+words as names of variables or functions, for example. Most of these have
+special meaning and we will be using them to do various things in our Rust
+programs; a few have no current functionality associated but have been reserved
+for functionality that might be in the Rust language in the future. You can find a list of the keywords in Appendix XX.
+
+PROD: END BOX
+
+-- ft.h3: A Simple Program that Binds a Variable
+
+
+Let’s start with a short example that binds a value to a variable and then uses
+that in a sentence that we'll print to the screen. First, we’ll generate a new
+project with Cargo. Open a terminal, and navigate to the directory you want to
+store your projects in. From there, generate a new project:
+
+-- ft.code:
+lang: bash
+
+\$ cargo new --bin bindings
+\$ cd bindings
+
+
+-- ft.markdown:
+
+This creates a new project called `bindings` and sets up our *Cargo.toml* and
+*src/main.rs* files. As we saw in Chapter XX, Cargo will generate these files
+and create a little "hello world" program like this:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    println!("Hello, world!");
+}
+
+
+-- ft.markdown:
+
+Open *src/main.rs* and replace its code with the following:
+
+-- ft.code:
+lang: rust
+
+fn main() {
+    let x = 5;
+
+    println!("The value of x is: {}", x);
+}
+
+
+-- ft.markdown:
+
+This is the full program for our example. Enter the `run` command now to to see
+it working:
+
+-- ft.code:
+lang: bash
+
+\$ cargo run
+   Compiling bindings v0.1.0 (file:///projects/bindings)
+     Running `target/debug/bindings`
+The value of x is: 5
+
+
+-- ft.markdown:
+
+If you get an error instead of this output, double check that you've copied the
+program exactly as written, and then try again. Now let’s break this program
+down, line by line.
+
+-- ft.h4: Starting a Program with the main() Function
+
+
+Many Rust programs will contain the same function that our example program does:
+
+-- ft.code:
+lang: rust,ignore
+
+fn main() {
+
+
+-- ft.markdown:
+
+The `main()` function is the entry point of every executable Rust program. It
+doesn’t have to be at the very beginning of our source code, but it will be the
+first bit of code that runs when we execute our program. We’ll talk more about
+functions in the next section, but for now, just know that `main()` is
+where our program begins. The opening curly brace (`{`) indicates the start of
+the function’s body.
+
+-- ft.h4: Binding a Variable with `let`
+
+
+Inside the function body, we added the following:
+
+-- ft.code:
+lang: rust,ignore
+
+let x = 5;
+
+
+-- ft.markdown:
+
+This is a `let` statement, and it binds the value `5` to the variable `x`.
+Basic `let` statements take the following form:
+
+-- ft.code:
+lang: text
+
+let NAME = EXPRESSION;
+
+
+-- ft.markdown:
+
+A `let` statement first evaluates the `EXPRESSION` and then binds the resulting
+value to `NAME` to give us a variable to use later in the program. Notice the
+semicolon at the end of the statement, too. As in many other programming
+languages, statements in Rust must end with a semicolon.
+
+-- ft.markdown:
+
+In this simple example, the expression already is a value, but we could achieve
+the same result like this:
+
+-- ft.code:
+lang: rust
+
+let x = 2 + 3;
+
+
+-- ft.markdown:
+
+The expression `2 + 3` would evaluate to `5`, which would in turn be stored in
+the `x` variable binding.
+
+-- ft.markdown:
+
+More generally, `let` statements take the form:
+
+-- ft.code:
+lang: text
+
+let PATTERN = EXPRESSION;
+
+
+-- ft.markdown:
+
+*Patterns* are part of the ‘pattern matching’ feature of Rust. If you have
+worked with regular expressions, you can think of patterns like a regular
+expression that works on values in your program instead of characters in text.
+A name like `x` is a particularly humble form of pattern; it will always match
+and gets all the parts of the expression as its value. Patterns are a big part
+of Rust, and we’ll see more complex and powerful patterns as we go along.
+
+-- ft.h4: Printing to the Screen with a Macro
+
+
+The next line of our program is:
+
+-- ft.code:
+lang: rust,ignore
+
+    println!("The value of x is: {}", x);
+
+
+-- ft.markdown:
+
+The `println!` command is a *macro* that prints the text passed to it to the
+screen. Macros are indicated with the `!` character at the end of their name.
+In Chapter XX, you'll learn more about the details of macros and how to
+write macros yourself, but for now we'll just be using macros provided by the
+standard Rust library.
+
+-- ft.markdown:
+
+Macros can add new syntax to the language to enable convenient code reuse.
+Using a macro may look similar to calling a function, but they do have
+different capabilities. The `!` is a reminder that calling a macro may look
+slightly unusual. For example, the "Hello, world!" program that `cargo new`
+generated for us called the `println!` macro with one argument (the string
+`"Hello, world!"`). Here, we are calling it with two arguments (the string
+`"The value of x is: {}"` and `x`). Functions in Rust must always be called
+with the same number of arguments that their definition specifies, but macros
+have different rules that allow them to take different numbers of arguments.
+
+-- ft.markdown:
+
+The `println!` macro only requires one argument: a format string. You can add
+optional arguments inside this format string by using the special text `{}`.
+Each instance of `{}` corresponds to an additional argument. Here’s an example:
+
+-- ft.code:
+lang: rust
+
+let x = 2 + 3;
+let y = x + 5;
+
+println!("The value of x is {}, and the value of y is {}", x, y);
+
+
+-- ft.markdown:
+
+If you were to run a program containing these statements, it would print the
+following:
+
+-- ft.code:
+lang: text
+
+The value of x is 5, and the value of y is 10
+
+
+-- ft.markdown:
+
+Think of `{}` as little crab pincers, holding a value in place. The first `{}`
+holds the first value after the format string, the second set holds the second
+value, and so on. The `{}` placeholder has a number of more advanced formatting
+options that we’ll discuss later.
+
+-- ft.markdown:
+
+After the `println!` macro, we match the opening curly brace that declared the
+`main()` function with a closing curly brace to declare the end of the function:
+
+-- ft.code:
+lang: rust,ignore
+
+}
+
+
+-- ft.markdown:
+
+And of course, when we run the program, our output is:
+
+-- ft.code:
+lang: text
+
+The value of x is: 5
+
+
+-- ft.markdown:
+
+With this simple program, you've created your first variable and used your
+first Rust macro. That makes you a Rust programmer. Welcome! Now that you've
+seen the basics, let's explore variable bindings further.

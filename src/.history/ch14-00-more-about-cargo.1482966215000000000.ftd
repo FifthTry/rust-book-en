@@ -1,0 +1,32 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: More about Cargo and Crates.io
+
+
+-- ft.h2: Getting your project ready to be published on Crates.io
+
+
+(and publish itself)
+
+-- ft.h3: Metadata in your Cargo.toml
+
+
+-- ft.h3: Versions
+
+
+- yank
+
+-- ft.h3: `pub use`
+
+
+-- ft.h3: Doc Comments
+
+
+-- ft.h2: Release profiles
+
+
+-- ft.h2: Cargo Workspaces
+
+
+-- ft.h2: `cargo install` and Cargo Extensions
