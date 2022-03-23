@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h1: Programming a Guessing Game
@@ -553,7 +553,7 @@ These lines show Cargo only updates the build with your tiny change to the
 *src/main.rs* file. Your dependencies haven’t changed, so Cargo knows it can
 reuse what it has already downloaded and compiled for those.
 
--- ft.h4: Ensuring Reproducible Builds with the *Cargo.lock* File
+-- ft.h3: Ensuring Reproducible Builds with the *Cargo.lock* File
 
 
 Cargo has a mechanism that ensures you can rebuild the same artifact every time
@@ -574,7 +574,7 @@ have a reproducible build automatically. In other words, your project will
 remain at `0.8.3` until you explicitly upgrade, thanks to the *Cargo.lock*
 file.
 
--- ft.h4: Updating a Crate to Get a New Version
+-- ft.h3: Updating a Crate to Get a New Version
 
 
 When you *do* want to update a crate, Cargo provides the command `update`,

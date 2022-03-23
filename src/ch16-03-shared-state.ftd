@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Shared-State Concurrency
@@ -51,7 +51,7 @@ Management of mutexes can be incredibly tricky to get right, which is why so
 many people are enthusiastic about channels. However, thanks to Rust’s type
 system and ownership rules, you can’t get locking and unlocking wrong.
 
--- ft.h4: The API of `Mutex<T>`
+-- ft.h3: The API of `Mutex<T>`
 
 
 As an example of how to use a mutex, let’s start by using a mutex in a
@@ -106,7 +106,7 @@ happens automatically.
 After dropping the lock, we can print the mutex value and see that we were able
 to change the inner `i32` to 6.
 
--- ft.h4: Sharing a `Mutex<T>` Between Multiple Threads
+-- ft.h3: Sharing a `Mutex<T>` Between Multiple Threads
 
 
 Now, let’s try to share a value between multiple threads using `Mutex<T>`.
@@ -156,7 +156,7 @@ iteration of the loop. So Rust is telling us that we can’t move the ownership
 of lock `counter` into multiple threads. Let’s fix the compiler error with a
 multiple-ownership method we discussed in Chapter 15.
 
--- ft.h4: Multiple Ownership with Multiple Threads
+-- ft.h3: Multiple Ownership with Multiple Threads
 
 
 In Chapter 15, we gave a value multiple owners by using the smart pointer
@@ -204,7 +204,7 @@ could in turn lead to memory leaks or a value being dropped before we’re done
 with it. What we need is a type exactly like `Rc<T>` but one that makes changes
 to the reference count in a thread-safe way.
 
--- ft.h4: Atomic Reference Counting with `Arc<T>`
+-- ft.h3: Atomic Reference Counting with `Arc<T>`
 
 
 Fortunately, `Arc<T>` *is* a type like `Rc<T>` that is safe to use in

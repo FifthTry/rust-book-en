@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: `RefCell<T>` and the Interior Mutability Pattern
@@ -109,7 +109,7 @@ a compiler error.
 Let’s work through a practical example where we can use `RefCell<T>` to mutate
 an immutable value and see why that is useful.
 
--- ft.h4: A Use Case for Interior Mutability: Mock Objects
+-- ft.h3: A Use Case for Interior Mutability: Mock Objects
 
 
 A *test double* is the general programming concept for a type used in place of
@@ -264,7 +264,7 @@ immutable reference to the vector.
 
 Now that you’ve seen how to use `RefCell<T>`, let’s dig into how it works!
 
--- ft.h4: Keeping Track of Borrows at Runtime with `RefCell<T>`
+-- ft.h3: Keeping Track of Borrows at Runtime with `RefCell<T>`
 
 
 When creating immutable and mutable references, we use the `&` and `&mut`

@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h1: Enums and Pattern Matching

@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Controlling How Tests Are Run
@@ -146,7 +146,7 @@ tests will run in parallel:
 $processor$: include
 $path$: ../listings/ch11-writing-automated-tests/listing-11-11/output.txt
 
--- ft.h4: Running Single Tests
+-- ft.h3: Running Single Tests
 
 
 We can pass the name of any test function to `cargo test` to run only that test:
@@ -166,7 +166,7 @@ command ran by displaying `2 filtered out` at the end of the summary line.
 We can’t specify the names of multiple tests in this way; only the first value
 given to `cargo test` will be used. But there is a way to run multiple tests.
 
--- ft.h4: Filtering to Run Multiple Tests
+-- ft.h3: Filtering to Run Multiple Tests
 
 
 We can specify part of a test name, and any test whose name matches that value

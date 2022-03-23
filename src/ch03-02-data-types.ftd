@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Data Types
@@ -43,7 +43,7 @@ A *scalar* type represents a single value. Rust has four primary scalar types:
 integers, floating-point numbers, Booleans, and characters. You may recognize
 these from other programming languages. Let’s jump into how they work in Rust.
 
--- ft.h4: Integer Types
+-- ft.h3: Integer Types
 
 
 An *integer* is a number without a fractional component. We used one integer
@@ -138,7 +138,7 @@ some sort of collection.
 > - Saturate at the value’s minimum or maximum values with `saturating_*`
 >   methods
 
--- ft.h4: Floating-Point Types
+-- ft.h3: Floating-Point Types
 
 
 Rust also has two primitive types for *floating-point numbers*, which are
@@ -160,7 +160,7 @@ $path$: ../listings/ch03-common-programming-concepts/no-listing-06-floating-poin
 Floating-point numbers are represented according to the IEEE-754 standard. The
 `f32` type is a single-precision float, and `f64` has double precision.
 
--- ft.h4: Numeric Operations
+-- ft.h3: Numeric Operations
 
 
 Rust supports the basic mathematical operations you’d expect for all of the
@@ -180,7 +180,7 @@ Each expression in these statements uses a mathematical operator and evaluates
 to a single value, which is then bound to a variable. [Appendix B](appendix-02-operators.md)<!-- ignore --> contains a
 list of all operators that Rust provides.
 
--- ft.h4: The Boolean Type
+-- ft.h3: The Boolean Type
 
 
 As in most other programming languages, a Boolean type in Rust has two possible
@@ -199,7 +199,7 @@ The main way to use Boolean values is through conditionals, such as an `if`
 expression. We’ll cover how `if` expressions work in Rust in the [“Control
 Flow”](ch03-05-control-flow.html#control-flow)<!-- ignore --> section.
 
--- ft.h4: The Character Type
+-- ft.h3: The Character Type
 
 
 Rust’s `char` type is the language’s most primitive alphabetic type. Here’s
@@ -230,7 +230,7 @@ Strings”](ch08-02-strings.html#storing-utf-8-encoded-text-with-strings)<!-- ig
 *Compound types* can group multiple values into one type. Rust has two
 primitive compound types: tuples and arrays.
 
--- ft.h4: The Tuple Type
+-- ft.h3: The Tuple Type
 
 
 A tuple is a general way of grouping together a number of values with a variety
@@ -296,7 +296,7 @@ also written `()`. The type is called the *unit type* and the value is called
 the *unit value*. Expressions implicitly return the unit value if they don’t
 return any other value.
 
--- ft.h4: The Array Type
+-- ft.h3: The Array Type
 
 
 Another way to have a collection of multiple values is with an *array*. Unlike
@@ -369,7 +369,7 @@ The array named `a` will contain `5` elements that will all be set to the value
 `3` initially. This is the same as writing `let a = [3, 3, 3, 3, 3];` but in a
 more concise way.
 
--- ft.h5: Accessing Array Elements
+-- ft.h3: Accessing Array Elements
 
 
 An array is a single chunk of memory of a known, fixed size that can be
@@ -388,7 +388,7 @@ In this example, the variable named `first` will get the value `1`, because
 that is the value at index `[0]` in the array. The variable named `second` will
 get the value `2` from index `[1]` in the array.
 
--- ft.h5: Invalid Array Element Access
+-- ft.h3: Invalid Array Element Access
 
 
 Let’s see what happens if you try to access an element of an array that is past

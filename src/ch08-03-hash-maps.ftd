@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Storing Keys with Associated Values in Hash Maps
@@ -170,7 +170,7 @@ value, only adding the new value if the key *doesn’t* already have a value. Or
 you could combine the old value and the new value. Let’s look at how to do each
 of these!
 
--- ft.h4: Overwriting a Value
+-- ft.h3: Overwriting a Value
 
 
 If we insert a key and a value into a hash map and then insert that same key
@@ -193,7 +193,7 @@ key</span>
 This code will print `{"Blue": 25}`. The original value of `10` has been
 overwritten.
 
--- ft.h4: Only Inserting a Value If the Key Has No Value
+-- ft.h3: Only Inserting a Value If the Key Has No Value
 
 
 It’s common to check whether a particular key has a value and, if it doesn’t,
@@ -230,7 +230,7 @@ first call to `entry` will insert the key for the Yellow team with the value
 `entry` will not change the hash map because the Blue team already has the
 value 10.
 
--- ft.h4: Updating a Value Based on the Old Value
+-- ft.h3: Updating a Value Based on the Old Value
 
 
 Another common use case for hash maps is to look up a key’s value and then

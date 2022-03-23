@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Using `Box<T>` to Point to Data on the Heap
@@ -85,7 +85,7 @@ we’ll define is straightforward except for the recursion; therefore, the
 concepts in the example we’ll work with will be useful any time you get into
 more complex situations involving recursive types.
 
--- ft.h4: More Information About the Cons List
+-- ft.h3: More Information About the Cons List
 
 
 A *cons list* is a data structure that comes from the Lisp programming language
@@ -178,7 +178,7 @@ directly. As a result, Rust can’t figure out how much space it needs to store 
 at how Rust decides how much space it needs to store a value of a non-recursive
 type.
 
--- ft.h4: Computing the Size of a Non-Recursive Type
+-- ft.h3: Computing the Size of a Non-Recursive Type
 
 
 Recall the `Message` enum we defined in Listing 6-2 when we discussed enum
@@ -217,7 +217,7 @@ variant. The `Cons` variant holds a value of type `i32` and a value of type
 <span class="caption">Figure 15-1: An infinite `List` consisting of infinite
 `Cons` variants</span>
 
--- ft.h4: Using `Box<T>` to Get a Recursive Type with a Known Size
+-- ft.h3: Using `Box<T>` to Get a Recursive Type with a Known Size
 
 
 Rust can’t figure out how much space to allocate for recursively defined types,

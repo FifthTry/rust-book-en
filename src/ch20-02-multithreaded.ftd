@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Turning Our Single-Threaded Server into a Multithreaded Server
@@ -104,7 +104,7 @@ we’ll use compiler-driven development here. We’ll write the code that calls 
 functions we want, and then we’ll look at errors from the compiler to determine
 what we should change next to get the code to work.
 
--- ft.h4: Code Structure If We Could Spawn a Thread for Each Request
+-- ft.h3: Code Structure If We Could Spawn a Thread for Each Request
 
 
 First, let’s explore how our code might look if it did create a new thread for
@@ -133,7 +133,7 @@ that the requests to */* don’t have to wait for */sleep* to finish. But as we
 mentioned, this will eventually overwhelm the system because you’d be making
 new threads without any limit.
 
--- ft.h4: Creating a Similar Interface for a Finite Number of Threads
+-- ft.h3: Creating a Similar Interface for a Finite Number of Threads
 
 
 We want our thread pool to work in a similar, familiar way so switching from
@@ -160,7 +160,7 @@ run for each stream. We need to implement `pool.execute` so it takes the
 closure and gives it to a thread in the pool to run. This code won’t yet
 compile, but we’ll try so the compiler can guide us in how to fix it.
 
--- ft.h4: Building the `ThreadPool` Struct Using Compiler Driven Development
+-- ft.h3: Building the `ThreadPool` Struct Using Compiler Driven Development
 
 
 Make the changes in Listing 20-12 to *src/main.rs*, and then let’s use the
@@ -340,7 +340,7 @@ yet!
 > writing unit tests to check that the code compiles *and* has the behavior we
 > want.
 
--- ft.h4: Validating the Number of Threads in `new`
+-- ft.h3: Validating the Number of Threads in `new`
 
 
 We aren’t doing anything with the parameters to `new` and `execute`. Let’s
@@ -386,7 +386,7 @@ lang: rust,ignore
 pub fn new(size: usize) -> Result<ThreadPool, PoolCreationError> {
 
 
--- ft.h4: Creating Space to Store the Threads
+-- ft.h3: Creating Space to Store the Threads
 
 
 Now that we have a way to know we have a valid number of threads to store in
@@ -453,7 +453,7 @@ inserted.
 When you run `cargo check` again, you’ll get a few more warnings, but it should
 succeed.
 
--- ft.h4: A `Worker` Struct Responsible for Sending Code from the `ThreadPool` to a Thread
+-- ft.h3: A `Worker` Struct Responsible for Sending Code from the `ThreadPool` to a Thread
 
 
 We left a comment in the `for` loop in Listing 20-14 regarding the creation of
@@ -528,7 +528,7 @@ This code will compile and will store the number of `Worker` instances we
 specified as an argument to `ThreadPool::new`. But we’re *still* not processing
 the closure that we get in `execute`. Let’s look at how to do that next.
 
--- ft.h4: Sending Requests to Threads via Channels
+-- ft.h3: Sending Requests to Threads via Channels
 
 
 Now we’ll tackle the problem that the closures given to `thread::spawn` do
@@ -655,7 +655,7 @@ the workers can share ownership of the receiving end.
 
 With these changes, the code compiles! We’re getting there!
 
--- ft.h4: Implementing the `execute` Method
+-- ft.h3: Implementing the `execute` Method
 
 
 Let’s finally implement the `execute` method on `ThreadPool`. We’ll also change

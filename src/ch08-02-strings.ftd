@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Storing UTF-8 Encoded Text with Strings
@@ -131,7 +131,7 @@ A `String` can grow in size and its contents can change, just like the contents
 of a `Vec<T>`, if you push more data into it. In addition, you can conveniently
 use the `+` operator or the `format!` macro to concatenate `String` values.
 
--- ft.h4: Appending to a String with `push_str` and `push`
+-- ft.h3: Appending to a String with `push_str` and `push`
 
 
 We can grow a `String` by using the `push_str` method to append a string slice,
@@ -186,7 +186,7 @@ using `push`</span>
 
 As a result, `s` will contain `lol`.
 
--- ft.h4: Concatenation with the `+` Operator or the `format!` Macro
+-- ft.h3: Concatenation with the `+` Operator or the `format!` Macro
 
 
 Often, you’ll want to combine two existing strings. One way to do so is to use
@@ -309,7 +309,7 @@ The error and the note tell the story: Rust strings don’t support indexing. Bu
 why not? To answer that question, we need to discuss how Rust stores strings in
 memory.
 
--- ft.h4: Internal Representation
+-- ft.h3: Internal Representation
 
 
 A `String` is a wrapper over a `Vec<u8>`. Let’s look at some of our properly
@@ -362,7 +362,7 @@ The answer, then, is that to avoid returning an unexpected value and causing
 bugs that might not be discovered immediately, Rust doesn’t compile this code
 at all and prevents misunderstandings early in the development process.
 
--- ft.h4: Bytes and Scalar Values and Grapheme Clusters! Oh My!
+-- ft.h3: Bytes and Scalar Values and Grapheme Clusters! Oh My!
 
 
 Another point about UTF-8 is that there are actually three relevant ways to

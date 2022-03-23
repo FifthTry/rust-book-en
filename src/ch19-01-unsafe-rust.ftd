@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Unsafe Rust
@@ -219,7 +219,7 @@ Bodies of unsafe functions are effectively `unsafe` blocks, so to perform other
 unsafe operations within an unsafe function, we don’t need to add another
 `unsafe` block.
 
--- ft.h4: Creating a Safe Abstraction over Unsafe Code
+-- ft.h3: Creating a Safe Abstraction over Unsafe Code
 
 
 Just because a function contains unsafe code doesn’t mean we need to mark the
@@ -359,7 +359,7 @@ We don’t own the memory at this arbitrary location, and there is no guarantee
 that the slice this code creates contains valid `i32` values. Attempting to use
 `slice` as though it’s a valid slice results in undefined behavior.
 
--- ft.h4: Using `extern` Functions to Call External Code
+-- ft.h3: Using `extern` Functions to Call External Code
 
 
 Sometimes, your Rust code might need to interact with code written in another

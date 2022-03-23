@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: What Is Ownership?
@@ -265,7 +265,7 @@ simple right now, but the behavior of code can be unexpected in more
 complicated situations when we want to have multiple variables use the data
 we’ve allocated on the heap. Let’s explore some of those situations now.
 
--- ft.h4: Ways Variables and Data Interact: Move
+-- ft.h3: Ways Variables and Data Interact: Move
 
 
 Multiple variables can interact with the same data in different ways in Rust.
@@ -418,7 +418,7 @@ In addition, there’s a design choice that’s implied by this: Rust will never
 automatically create “deep” copies of your data. Therefore, any *automatic*
 copying can be assumed to be inexpensive in terms of runtime performance.
 
--- ft.h4: Ways Variables and Data Interact: Clone
+-- ft.h3: Ways Variables and Data Interact: Clone
 
 
 If we *do* want to deeply copy the heap data of the `String`, not just the
@@ -443,7 +443,7 @@ When you see a call to `clone`, you know that some arbitrary code is being
 executed and that code may be expensive. It’s a visual indicator that something
 different is going on.
 
--- ft.h4: Stack-Only Data: Copy
+-- ft.h3: Stack-Only Data: Copy
 
 
 There’s another wrinkle we haven’t talked about yet. This code using integers –

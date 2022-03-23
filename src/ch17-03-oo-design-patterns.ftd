@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Implementing an Object-Oriented Design Pattern
@@ -427,7 +427,7 @@ languages, we’re not taking as full advantage of Rust’s strengths as we coul
 Let’s look at some changes we can make to the `blog` crate that can make
 invalid states and transitions into compile time errors.
 
--- ft.h4: Encoding States and Behavior as Types
+-- ft.h3: Encoding States and Behavior as Types
 
 
 We’ll show you how to rethink the state pattern to get a different set of
@@ -492,7 +492,7 @@ defined! So now the program ensures all posts start as draft posts, and draft
 posts don’t have their content available for display. Any attempt to get around
 these constraints will result in a compiler error.
 
--- ft.h4: Implementing Transitions as Transformations into Different Types
+-- ft.h3: Implementing Transitions as Transformations into Different Types
 
 
 So how do we get a published post? We want to enforce the rule that a draft

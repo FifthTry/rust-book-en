@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Publishing a Crate to Crates.io
@@ -68,7 +68,7 @@ rendered, as shown in Figure 14-1:
 <span class="caption">Figure 14-1: HTML documentation for the `add_one`
 function</span>
 
--- ft.h4: Commonly Used Sections
+-- ft.h3: Commonly Used Sections
 
 
 We used the `# Examples` Markdown heading in Listing 14-1 to create a section
@@ -90,7 +90,7 @@ Most documentation comments don’t need all of these sections, but this is a
 good checklist to remind you of the aspects of your code that people calling
 your code will be interested in knowing about.
 
--- ft.h4: Documentation Comments as Tests
+-- ft.h3: Documentation Comments as Tests
 
 
 Adding example code blocks in your documentation comments can help demonstrate
@@ -124,7 +124,7 @@ Now if we change either the function or the example so the `assert_eq!` in the
 example panics and run `cargo test` again, we’ll see that the doc tests catch
 that the example and the code are out of sync with each other!
 
--- ft.h4: Commenting Contained Items
+-- ft.h3: Commenting Contained Items
 
 
 Another style of doc comment, `//!`, adds documentation to the item that

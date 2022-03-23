@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Test Organization
@@ -26,7 +26,7 @@ code that they’re testing. The convention is to create a module named `tests`
 in each file to contain the test functions and to annotate the module with
 `cfg(test)`.
 
--- ft.h4: The Tests Module and `#[cfg(test)]`
+-- ft.h3: The Tests Module and `#[cfg(test)]`
 
 
 The `#[cfg(test)]` annotation on the tests module tells Rust to compile and run
@@ -58,7 +58,7 @@ if we actively run the tests with `cargo test`. This includes any helper
 functions that might be within this module, in addition to the functions
 annotated with `#[test]`.
 
--- ft.h4: Testing Private Functions
+-- ft.h3: Testing Private Functions
 
 
 There’s debate within the testing community about whether or not private
@@ -99,7 +99,7 @@ work correctly on their own could have problems when integrated, so test
 coverage of the integrated code is important as well. To create integration
 tests, you first need a *tests* directory.
 
--- ft.h4: The *tests* Directory
+-- ft.h3: The *tests* Directory
 
 
 We create a *tests* directory at the top level of our project directory, next
@@ -176,7 +176,7 @@ $path$: ../listings/ch11-writing-automated-tests/output-only-05-single-integrati
 
 This command runs only the tests in the *tests/integration_test.rs* file.
 
--- ft.h4: Submodules in Integration Tests
+-- ft.h3: Submodules in Integration Tests
 
 
 As you add more integration tests, you might want to make more than one file in
@@ -252,7 +252,7 @@ Note that the `mod common;` declaration is the same as the module declaration
 we demonstrated in Listing 7-21. Then in the test function, we can call the
 `common::setup()` function.
 
--- ft.h4: Integration Tests for Binary Crates
+-- ft.h3: Integration Tests for Binary Crates
 
 
 If our project is a binary crate that only contains a *src/main.rs* file and

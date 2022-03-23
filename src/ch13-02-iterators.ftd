@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Processing a Series of Items with Iterators
@@ -355,7 +355,7 @@ will increment `count` and return the current value wrapped in `Some`. Once
 `count` is 5, our iterator will stop incrementing `count` and always return
 `None`.
 
--- ft.h4: Using Our `Counter` Iterator’s `next` Method
+-- ft.h3: Using Our `Counter` Iterator’s `next` Method
 
 
 Once we’ve implemented the `Iterator` trait, we have an iterator! Listing 13-22
@@ -380,7 +380,7 @@ This test creates a new `Counter` instance in the `counter` variable and then
 calls `next` repeatedly, verifying that we have implemented the behavior we
 want this iterator to have: returning the values from 1 to 5.
 
--- ft.h4: Using Other `Iterator` Trait Methods
+-- ft.h3: Using Other `Iterator` Trait Methods
 
 
 We implemented the `Iterator` trait by defining the `next` method, so we

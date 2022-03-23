@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Reference Cycles Can Leak Memory
@@ -171,7 +171,7 @@ As an example, rather than using a list whose items know only about the next
 item, we’ll create a tree whose items know about their children items *and*
 their parent items.
 
--- ft.h4: Creating a Tree Data Structure: a `Node` with Child Nodes
+-- ft.h3: Creating a Tree Data Structure: a `Node` with Child Nodes
 
 
 To start, we’ll build a tree with nodes that know about their child nodes.
@@ -220,7 +220,7 @@ We clone the `Rc<Node>` in `leaf` and store that in `branch`, meaning the
 doesn’t know they’re related. We want `leaf` to know that `branch` is its
 parent. We’ll do that next.
 
--- ft.h4: Adding a Reference from a Child to Its Parent
+-- ft.h3: Adding a Reference from a Child to Its Parent
 
 
 To make the child node aware of its parent, we need to add a `parent` field to
@@ -314,7 +314,7 @@ The lack of infinite output indicates that this code didn’t create a reference
 cycle. We can also tell this by looking at the values we get from calling
 `Rc::strong_count` and `Rc::weak_count`.
 
--- ft.h4: Visualizing Changes to `strong_count` and `weak_count`
+-- ft.h3: Visualizing Changes to `strong_count` and `weak_count`
 
 
 Let’s look at how the `strong_count` and `weak_count` values of the `Rc<Node>`

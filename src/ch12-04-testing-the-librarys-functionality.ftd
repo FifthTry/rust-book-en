@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Developing the Library’s Functionality with Test-Driven Development
@@ -152,7 +152,7 @@ that and implement `search`, our program needs to follow these steps:
 
 Let’s work through each step, starting with iterating through lines.
 
--- ft.h4: Iterating Through Lines with the `lines` Method
+-- ft.h3: Iterating Through Lines with the `lines` Method
 
 
 Rust has a helpful method to handle line-by-line iteration of strings,
@@ -177,7 +177,7 @@ The `lines` method returns an iterator. We’ll talk about iterators in depth in
 iterator in [Listing 3-5](ch03-05-control-flow.html#looping-through-a-collection-with-for)<!-- ignore -->, where we used a `for` loop
 with an iterator to run some code on each item in a collection.
 
--- ft.h4: Searching Each Line for the Query
+-- ft.h3: Searching Each Line for the Query
 
 
 Next, we’ll check whether the current line contains our query string.
@@ -196,7 +196,7 @@ $path$: ../listings/ch12-an-io-project/listing-12-18/src/lib.rs:here
 <span class="caption">Listing 12-18: Adding functionality to see whether the
 line contains the string in `query`</span>
 
--- ft.h4: Storing Matching Lines
+-- ft.h3: Storing Matching Lines
 
 
 We also need a way to store the lines that contain our query string. For that,
@@ -237,7 +237,7 @@ but it doesn’t take advantage of some useful features of iterators. We’ll
 return to this example in [Chapter 13](ch13-02-iterators.html)<!-- ignore -->, where we’ll
 explore iterators in detail, and look at how to improve it.
 
--- ft.h4: Using the `search` Function in the `run` Function
+-- ft.h3: Using the `search` Function in the `run` Function
 
 
 Now that the `search` function is working and tested, we need to call `search`

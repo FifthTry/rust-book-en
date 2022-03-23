@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Cargo Workspaces
@@ -253,7 +253,7 @@ Hello, world! 10 plus one is 11!
 
 This runs the code in *adder/src/main.rs*, which depends on the `add_one` crate.
 
--- ft.h4: Depending on an External Package in a Workspace
+-- ft.h3: Depending on an External Package in a Workspace
 
 
 Notice that the workspace has only one *Cargo.lock* file at the top level of
@@ -357,7 +357,7 @@ using the same version. Using the same version of `rand` across the workspace
 saves space because we won’t have multiple copies and ensures that the crates
 in the workspace will be compatible with each other.
 
--- ft.h4: Adding a Test to a Workspace
+-- ft.h3: Adding a Test to a Workspace
 
 
 For another enhancement, let’s add a test of the `add_one::add_one` function

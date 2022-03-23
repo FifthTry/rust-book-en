@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Closures: Anonymous Functions that Can Capture Their Environment
@@ -140,7 +140,7 @@ place where we’re currently unnecessarily calling the function twice without
 adding any other calls to that function in the process. That is, we don’t want
 to call it if the result isn’t needed, and we still want to call it only once.
 
--- ft.h4: Refactoring Using Functions
+-- ft.h3: Refactoring Using Functions
 
 
 We could restructure the workout program in many ways. First, we’ll try
@@ -173,7 +173,7 @@ We want to refer to `simulated_expensive_calculation` only once in
 `generate_workout`, but defer the expensive calculation to only where
 we actually need the result. This is a use case for closures!
 
--- ft.h4: Refactoring with Closures to Store Code
+-- ft.h3: Refactoring with Closures to Store Code
 
 
 Instead of always calling the `simulated_expensive_calculation` function before

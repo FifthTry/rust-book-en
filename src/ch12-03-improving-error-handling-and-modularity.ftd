@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Refactoring to Improve Modularity and Error Handling
@@ -70,7 +70,7 @@ your program’s logic by moving it into functions in *lib.rs*. The only code
 that remains in *main.rs* will be small enough to verify its correctness by
 reading it. Let’s rework our program by following this process.
 
--- ft.h4: Extracting the Argument Parser
+-- ft.h3: Extracting the Argument Parser
 
 
 We’ll extract the functionality for parsing arguments into a function that
@@ -108,7 +108,7 @@ in small, incremental steps. After making this change, run the program again to
 verify that the argument parsing still works. It’s good to check your progress
 often, to help identify the cause of problems when they occur.
 
--- ft.h4: Grouping Configuration Values
+-- ft.h3: Grouping Configuration Values
 
 
 We can take another small step to improve the `parse_config` function further.
@@ -189,7 +189,7 @@ that their purpose is to configure how the program will work. Any code that
 uses these values knows to find them in the `config` instance in the fields
 named for their purpose.
 
--- ft.h4: Creating a Constructor for `Config`
+-- ft.h3: Creating a Constructor for `Config`
 
 
 So far, we’ve extracted the logic responsible for parsing the command line
@@ -244,7 +244,7 @@ The line `index out of bounds: the len is 1 but the index is 1` is an error
 message intended for programmers. It won’t help our end users understand what
 happened and what they should do instead. Let’s fix that now.
 
--- ft.h4: Improving the Error Message
+-- ft.h3: Improving the Error Message
 
 
 In Listing 12-8, we add a check in the `new` function that will verify that the
@@ -290,7 +290,7 @@ the technique we used in Listing 9-13 isn’t the best to use here: a call to
 can use the other technique you learned about in Chapter 9—[returning a
 `Result`](ch09-02-recoverable-errors-with-result.html)<!-- ignore --> that indicates either success or an error.
 
--- ft.h4: Returning a `Result` from `new` Instead of Calling `panic!`
+-- ft.h3: Returning a `Result` from `new` Instead of Calling `panic!`
 
 
 We can instead return a `Result` value that will contain a `Config` instance in
@@ -335,7 +335,7 @@ Returning an `Err` value from `Config::new` allows the `main` function to
 handle the `Result` value returned from the `new` function and exit the process
 more cleanly in the error case.
 
--- ft.h4: Calling `Config::new` and Handling Errors
+-- ft.h3: Calling `Config::new` and Handling Errors
 
 
 To handle the error case and print a user-friendly message, we need to update
@@ -422,7 +422,7 @@ The `run` function now contains all the remaining logic from `main`, starting
 from reading the file. The `run` function takes the `Config` instance as an
 argument.
 
--- ft.h4: Returning Errors from the `run` Function
+-- ft.h3: Returning Errors from the `run` Function
 
 
 With the remaining program logic separated into the `run` function, we can
@@ -493,7 +493,7 @@ might indicate that an error occurred. But we’re not checking to see whether o
 not there was an error, and the compiler reminds us that we probably meant to
 have some error-handling code here! Let’s rectify that problem now.
 
--- ft.h4: Handling Errors Returned from `run` in `main`
+-- ft.h3: Handling Errors Returned from `run` in `main`
 
 
 We’ll check for errors and handle them using a technique similar to one we used

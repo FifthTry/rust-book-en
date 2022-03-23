@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Pattern Syntax
@@ -148,7 +148,7 @@ ASCII letter`.
 We can also use patterns to destructure structs, enums, and tuples to use
 different parts of these values. Let’s walk through each value.
 
--- ft.h4: Destructuring Structs
+-- ft.h3: Destructuring Structs
 
 
 Listing 18-12 shows a `Point` struct with two fields, `x` and `y`, that we can
@@ -244,7 +244,7 @@ matches any other `Point` and creates variables for both the `x` and `y` fields.
 In this example, the value `p` matches the second arm by virtue of `x`
 containing a 0, so this code will print `On the y axis at 7`.
 
--- ft.h4: Destructuring Enums
+-- ft.h3: Destructuring Enums
 
 
 We’ve destructured enums earlier in this book, for example, when we
@@ -292,7 +292,7 @@ pattern is similar to the pattern we specify to match tuples. The number of
 variables in the pattern must match the number of elements in the variant we’re
 matching.
 
--- ft.h4: Destructuring Nested Structs and Enums
+-- ft.h3: Destructuring Nested Structs and Enums
 
 
 Until now, all our examples have been matching structs or enums that were one
@@ -318,7 +318,7 @@ arm also matches a `Message::ChangeColor` enum variant, but the inner enum
 matches the `Color::Hsv` variant instead. We can specify these complex
 conditions in one `match` expression, even though two enums are involved.
 
--- ft.h4: Destructuring Structs and Tuples
+-- ft.h3: Destructuring Structs and Tuples
 
 
 We can mix, match, and nest destructuring patterns in even more complex ways.
@@ -350,7 +350,7 @@ pattern (which you’ve seen), using the `_` pattern within another pattern,
 using a name that starts with an underscore, or using `..` to ignore remaining
 parts of a value. Let’s explore how and why to use each of these patterns.
 
--- ft.h4: Ignoring an Entire Value with `_`
+-- ft.h3: Ignoring an Entire Value with `_`
 
 
 We’ve used the underscore (`_`) as a wildcard pattern that will match any value
@@ -383,7 +383,7 @@ body in your implementation doesn’t need one of the parameters. The compiler
 will then not warn about unused function parameters, as it would if you used a
 name instead.
 
--- ft.h4: Ignoring Parts of a Value with a Nested `_`
+-- ft.h3: Ignoring Parts of a Value with a Nested `_`
 
 
 We can also use `_` inside another pattern to ignore just part of a value, for
@@ -437,7 +437,7 @@ $path$: ../listings/ch18-patterns-and-matching/listing-18-19/src/main.rs:here
 This code will print `Some numbers: 2, 8, 32`, and the values 4 and 16 will be
 ignored.
 
--- ft.h4: Ignoring an Unused Variable by Starting Its Name with `_`
+-- ft.h3: Ignoring an Unused Variable by Starting Its Name with `_`
 
 
 If you create a variable but don’t use it anywhere, Rust will usually issue a
@@ -500,7 +500,7 @@ value</span>
 
 This code works just fine because we never bind `s` to anything; it isn’t moved.
 
--- ft.h4: Ignoring Remaining Parts of a Value with `..`
+-- ft.h3: Ignoring Remaining Parts of a Value with `..`
 
 
 With values that have many parts, we can use the `..` syntax to use only a few

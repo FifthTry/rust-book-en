@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Improving Our I/O Project
@@ -55,7 +55,7 @@ Once `Config::new` takes ownership of the iterator and stops using indexing
 operations that borrow, we can move the `String` values from the iterator into
 `Config` rather than calling `clone` and making a new allocation.
 
--- ft.h4: Using the Returned Iterator Directly
+-- ft.h3: Using the Returned Iterator Directly
 
 
 Open your I/O project’s *src/main.rs* file, which should look like this:
@@ -121,7 +121,7 @@ signature of the `Config::new` function so the parameter `args` has the type
 `args` and we’ll be mutating `args` by iterating over it, we can add the `mut`
 keyword into the specification of the `args` parameter to make it mutable.
 
--- ft.h4: Using `Iterator` Trait Methods Instead of Indexing
+-- ft.h3: Using `Iterator` Trait Methods Instead of Indexing
 
 
 Next, we’ll fix the body of `Config::new`. The standard library documentation

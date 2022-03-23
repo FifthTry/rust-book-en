@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: Recoverable Errors with `Result`
@@ -381,7 +381,7 @@ it to handle appropriately.
 This pattern of propagating errors is so common in Rust that Rust provides the
 question mark operator `?` to make this easier.
 
--- ft.h4: A Shortcut for Propagating Errors: the `?` Operator
+-- ft.h3: A Shortcut for Propagating Errors: the `?` Operator
 
 
 Listing 9-7 shows an implementation of `read_username_from_file` that has the
@@ -493,7 +493,7 @@ into that `String`, and returns it. Of course, using `fs::read_to_string`
 doesn’t give us the opportunity to explain all the error handling, so we did it
 the longer way first.
 
--- ft.h4: Where The `?` Operator Can Be Used
+-- ft.h3: Where The `?` Operator Can Be Used
 
 
 The `?` operator can only be used in functions whose return type is compatible

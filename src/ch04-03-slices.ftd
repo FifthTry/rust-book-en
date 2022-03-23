@@ -1,4 +1,4 @@
--- ft.doc-page:
+-- ft.page-with-toc:
 toc: $ft.toc
 
 -- ft.h2: The Slice Type
@@ -299,7 +299,7 @@ reference in `clear` and the immutable reference in `word` from existing at the
 same time, and compilation fails. Not only has Rust made our API easier to use,
 but it has also eliminated an entire class of errors at compile time!
 
--- ft.h4: String Literals Are Slices
+-- ft.h3: String Literals Are Slices
 
 
 Recall that we talked about string literals being stored inside the binary. Now
@@ -317,7 +317,7 @@ The type of `s` here is `&str`: it’s a slice pointing to that specific point o
 the binary. This is also why string literals are immutable; `&str` is an
 immutable reference.
 
--- ft.h4: String Slices as Parameters
+-- ft.h3: String Slices as Parameters
 
 
 Knowing that you can take slices of literals and `String` values leads us to
